@@ -1,1 +1,38 @@
-<p>beer-selection works!</p>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Beer Types Templates:
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-grid-list cols="4" rowHeight="100px">
+      <mat-grid-tile
+        *ngFor="let template of templates"
+        [colspan]="template.cols"
+        [rowspan]="template.rows"
+        [style.background]="template.color"
+      >
+        {{ template.name }}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        My Recipes:
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-grid-list cols="4" rowHeight="100px">
+      <mat-grid-tile
+        *ngFor="let myRecipe of myRecipes"
+        [colspan]="myRecipe.cols"
+        [rowspan]="myRecipe.rows"
+        [style.background]="myRecipe.color"
+      >
+        {{ myRecipe.name }}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-expansion-panel>
+</mat-accordion>
+<button>Continue >></button>
