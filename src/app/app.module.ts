@@ -7,18 +7,22 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StyleSelectorComponent } from './view/style-selector/style-selector.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { StyleSelectorItemComponent } from './view/style-selector/style-selector-item/style-selector-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StyleSelectorComponent
+    StyleSelectorComponent,
+    StyleSelectorItemComponent
   ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

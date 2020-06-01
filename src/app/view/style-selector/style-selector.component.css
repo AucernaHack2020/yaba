@@ -1,3 +1,8 @@
-mat-grid-tile {
-    background: orange;
+:host ::ng-deep .mat-grid-tile {
+    overflow: unset !important;
+}
+
+:host {
+    margin: 1em;
+    display: block;
 }

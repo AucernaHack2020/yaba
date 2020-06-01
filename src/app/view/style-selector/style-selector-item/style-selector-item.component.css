@@ -1,0 +1,20 @@
+:host {
+    border: 1px solid !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+
+.main {
+    height: 100%;
+    /* padding: 5px; */
+}
+
+.name {
+    top: 30%;
+    position: absolute;
+    text-align: center;
+    width: calc(100% - 10px);
+    padding-right: 5px;
+    padding-left: 5px;
+}

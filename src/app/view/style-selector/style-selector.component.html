@@ -1,6 +1,5 @@
-<mat-grid-list cols="14" rowHeight="1:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
+<mat-grid-list cols="14" rowHeight="1:1" gutterSize="0.25em">
+    <mat-grid-tile *ngFor="let style of styles">
+        <yaba-style-selector-item [style]="style"></yaba-style-selector-item>
+    </mat-grid-tile>
 </mat-grid-list>
