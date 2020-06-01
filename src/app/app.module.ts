@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { StyleSelectorItemComponent } from './view/style-selector/style-selector-item/style-selector-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './view/login/login.component';
+import { IngredientsSelectionComponent } from './view/ingredients-selection/ingredients-selection.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LoginComponent } from './view/login/login.component';
     AppComponent,
     StyleSelectorComponent,
     StyleSelectorItemComponent,
-    LoginComponent
+    LoginComponent,
+    IngredientsSelectionComponent
   ],
   imports: [
     BrowserModule,
