@@ -12,7 +12,7 @@ import { StyleSelectorItemComponent } from "./view/style-selector/style-selector
 import { AppRoutingModule } from "./app-routing.module";
 import { LoginComponent } from "./view/login/login.component";
 import { BeerSelectionComponent } from "./view/beer-selection/beer-selection.component";
-import { IngredientsSelectionComponent } from './view/ingredients-selection/ingredients-selection.component';
+import { IngredientsSelectionComponent } from "./view/ingredients-selection/ingredients-selection.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { IngredientsSelectionComponent } from './view/ingredients-selection/ingr
     StyleSelectorComponent,
     StyleSelectorItemComponent,
     LoginComponent,
-    IngredientsSelectionComponent
+    BeerSelectionComponent,
+    IngredientsSelectionComponent,
   ],
   imports: [
     BrowserModule,
