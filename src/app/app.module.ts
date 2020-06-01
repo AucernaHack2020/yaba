@@ -9,20 +9,24 @@ import { StyleSelectorComponent } from './view/style-selector/style-selector.com
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { StyleSelectorItemComponent } from './view/style-selector/style-selector-item/style-selector-item.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './view/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     StyleSelectorComponent,
-    StyleSelectorItemComponent
+    StyleSelectorItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
