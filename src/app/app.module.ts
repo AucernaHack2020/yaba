@@ -13,6 +13,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { LoginComponent } from "./view/login/login.component";
 import { BeerSelectionComponent } from "./view/beer-selection/beer-selection.component";
 import { IngredientsSelectionComponent } from "./view/ingredients-selection/ingredients-selection.component";
+import { FlowChartComponent } from './view/flow-chart/flow-chart.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { IngredientsSelectionComponent } from "./view/ingredients-selection/ingr
     LoginComponent,
     BeerSelectionComponent,
     IngredientsSelectionComponent,
+    FlowChartComponent,
   ],
   imports: [
     BrowserModule,
