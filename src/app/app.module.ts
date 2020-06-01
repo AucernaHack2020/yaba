@@ -14,6 +14,8 @@ import { LoginComponent } from './view/login/login.component';
 import { BeerSelectionComponent } from './view/beer-selection/beer-selection.component';
 import { IngredientsSelectionComponent } from './view/ingredients-selection/ingredients-selection.component';
 import { FlowChartComponent } from './view/flow-chart/flow-chart.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { FlowChartComponent } from './view/flow-chart/flow-chart.component';
     BrowserAnimationsModule,
     MatGridListModule,
     MatButtonModule,
+    MatExpansionModule,
     AppRoutingModule,
   ],
   providers: [],
