@@ -25,14 +25,14 @@ export class StyleSelectorItemComponent implements OnInit {
 
         let r = rgb[0] / 255.0, g = rgb[1] / 255.0, b = rgb[2] / 255.0;
 
-        let max = Math.max(r, g, b);
-        let min = Math.min(r, g, b);
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
         let h, s, l = (max + min) / 2.0;
 
         if (max == min) {
             h = s = 0;  // achromatic
         } else {
-            let d = max - min;
+            const d = max - min;
             s = (l > 0.5 ? d / (2.0 - max - min) : d / (max + min));
 
             if (max == r && g >= b) {
@@ -56,7 +56,7 @@ export class StyleSelectorItemComponent implements OnInit {
         if (s === 0) {
             r = g = b = l; // achromatic
         } else {
-            let hue2rgb = function hue2rgb(p, q, t) {
+            const hue2rgb = function hue2rgb(p, q, t) {
                 if (t < 0) { t += 1; }
                 if (t > 1) { t -= 1; }
                 if (t < 1 / 6) { return p + (q - p) * 6 * t; }
@@ -65,8 +65,8 @@ export class StyleSelectorItemComponent implements OnInit {
                 return p;
             };
 
-            let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-            let p = 2 * l - q;
+            const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+            const p = 2 * l - q;
 
             r = hue2rgb(p, q, h + 1 / 3);
             g = hue2rgb(p, q, h);
