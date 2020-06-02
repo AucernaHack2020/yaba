@@ -54,12 +54,6 @@
     <mat-cell *matCellDef="let element"> {{ element.usage }} </mat-cell>
   </ng-container>
 
-  <!-- Exclude Column -->
-  <ng-container matColumnDef="exclude">
-    <mat-header-cell *matHeaderCellDef> Exclude </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.exclude }} </mat-cell>
-  </ng-container>
-
   <mat-header-row *matHeaderRowDef="displayedGrainColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedGrainColumns"></mat-row>
 </mat-table>
@@ -126,10 +120,38 @@
 </mat-table>
 <p></p>
 <div align="right">
-  <button mat-flat-button color="primary">
+  <button mat-flat-button color="primary" (click)="addHop()">
     Add Hop
   </button>
 </div>
+<p></p>
+<mat-divider></mat-divider>
+<p></p>
+<mat-divider></mat-divider>
+<h3 class="mat-h3">Yeast</h3>
+<mat-table [dataSource]="yeastDataSource" class="mat-elevation-z8">
+  <!-- Yeast Name -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Yeast </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Attenuation -->
+  <ng-container matColumnDef="attenuation">
+    <mat-header-cell *matHeaderCellDef> Attenuation </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.attenuation }} </mat-cell>
+  </ng-container>
+
+  <!-- Weight -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedYeastColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedYeastColumns"></mat-row>
+</mat-table>
+<p></p>
 <mat-divider></mat-divider>
 <p></p>
 <div align="center">
