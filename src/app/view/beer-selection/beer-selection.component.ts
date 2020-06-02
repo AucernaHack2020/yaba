@@ -32,6 +32,6 @@ export class BeerSelectionComponent implements OnInit {
   ngOnInit(): void {}
 
   btnClick() {
-    this.router.navigateByUrl("/ingredient-selection");
+    this.router.navigateByUrl("/ingredients-selection");
   }
 }
