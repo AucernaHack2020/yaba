@@ -15,6 +15,7 @@ import { BeerSelectionComponent } from './view/beer-selection/beer-selection.com
 import { IngredientsSelectionComponent } from './view/ingredients-selection/ingredients-selection.component';
 import { FlowChartComponent } from './view/flow-chart/flow-chart.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatGridListModule,
     MatButtonModule,
     MatExpansionModule,
+    MatIconModule,
     AppRoutingModule,
   ],
   providers: [],
