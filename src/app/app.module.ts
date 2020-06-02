@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
+import { IngredientElementComponent } from './view/ingredients-selection/ingredient-element/ingredient-element.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
     BeerSelectionComponent,
     IngredientsSelectionComponent,
     FlowChartComponent,
+    IngredientElementComponent,
   ],
   imports: [
     BrowserModule,
