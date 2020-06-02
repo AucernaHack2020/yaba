@@ -15,27 +15,126 @@
     </td>
   </tr>
 </table>
+<mat-divider></mat-divider>
+<h3 class="mat-h3">Grain</h3>
+<mat-table [dataSource]="grainDataSource" class="mat-elevation-z8">
+  <!-- Grain Name -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Grain </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
 
-<h3 class="mat-h3">List of Ingredients:</h3>
-<yaba-ingredient-element
-  ><!--(chooseStyle)="style = $event"-->
-</yaba-ingredient-element>
-<!--
-<pre>{{ style | json }}</pre>
--->
+  <!-- Extract -->
+  <ng-container matColumnDef="extract">
+    <mat-header-cell *matHeaderCellDef> Extract </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.extract }} </mat-cell>
+  </ng-container>
 
-<table cellspacing="0">
-  <tr>
-    <td>
-      <button mat-flat-button color="primary">
-        Add Ingredient
-      </button>
-    </td>
-    <td>
-      <button mat-flat-button color="primary">
-        BREW
-        <mat-icon>double_arrow</mat-icon>
-      </button>
-    </td>
-  </tr>
-</table>
+  <!-- Color Column -->
+  <ng-container matColumnDef="color">
+    <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.color }} </mat-cell>
+  </ng-container>
+
+  <!-- Percent Column -->
+  <ng-container matColumnDef="percent">
+    <mat-header-cell *matHeaderCellDef> % </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.percent }} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> Kg </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+  </ng-container>
+
+  <!-- Usage Column -->
+  <ng-container matColumnDef="usage">
+    <mat-header-cell *matHeaderCellDef> Usage </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.usage }} </mat-cell>
+  </ng-container>
+
+  <!-- Exclude Column -->
+  <ng-container matColumnDef="exclude">
+    <mat-header-cell *matHeaderCellDef> Exclude </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.exclude }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedGrainColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedGrainColumns"></mat-row>
+</mat-table>
+<p></p>
+<div align="right">
+  <button mat-flat-button color="primary">
+    Add Grain
+  </button>
+</div>
+<p></p>
+<mat-divider></mat-divider>
+<h3 class="mat-h3">Hop</h3>
+<mat-table [dataSource]="hopDataSource" class="mat-elevation-z8">
+  <!-- Hop Name -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Hop </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Alpha -->
+  <ng-container matColumnDef="alpha">
+    <mat-header-cell *matHeaderCellDef> Alpha </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.alpha }} </mat-cell>
+  </ng-container>
+
+  <!-- ModeColumn -->
+  <ng-container matColumnDef="mode">
+    <mat-header-cell *matHeaderCellDef> Mode </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.mode }} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+  </ng-container>
+
+  <!-- Volume Column -->
+  <ng-container matColumnDef="volume">
+    <mat-header-cell *matHeaderCellDef> G/L </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.volume }} </mat-cell>
+  </ng-container>
+
+  <!-- Usage Column -->
+  <ng-container matColumnDef="usage">
+    <mat-header-cell *matHeaderCellDef> Usage </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.usage }} </mat-cell>
+  </ng-container>
+
+  <!-- Temperature Column -->
+  <ng-container matColumnDef="temperature">
+    <mat-header-cell *matHeaderCellDef> Temp (C) </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.temperature }} </mat-cell>
+  </ng-container>
+
+  <!-- IBU Column -->
+  <ng-container matColumnDef="ibu">
+    <mat-header-cell *matHeaderCellDef> IBU </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.ibu }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedHopColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedHopColumns"></mat-row>
+</mat-table>
+<p></p>
+<div align="right">
+  <button mat-flat-button color="primary">
+    Add Hop
+  </button>
+</div>
+<mat-divider></mat-divider>
+<p></p>
+<div align="center">
+  <button mat-flat-button color="primary">
+    BREW
+    <mat-icon>double_arrow</mat-icon>
+  </button>
+</div>
