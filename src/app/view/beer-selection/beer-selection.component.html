@@ -5,7 +5,7 @@
         Beer Types Templates:
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-grid-list cols="4" rowHeight="100px">
+    <!-- <mat-grid-list cols="4" rowHeight="100px">
       <mat-grid-tile
         *ngFor="let template of templates"
         [colspan]="template.cols"
@@ -14,7 +14,9 @@
       >
         {{ template.name }}
       </mat-grid-tile>
-    </mat-grid-list>
+    </mat-grid-list> -->
+    <yaba-style-selector (chooseStyle)="style = $event"></yaba-style-selector>
+    <pre>{{style | json}}</pre>
   </mat-expansion-panel>
 
   <mat-expansion-panel>

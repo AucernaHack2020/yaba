@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Style, Category } from 'src/app/model';
 import * as stylesJSON from 'src/assets/examples/styles.json';
 import * as categoriesJSON from 'src/assets/examples/category.json';
@@ -10,6 +10,7 @@ import * as categoriesJSON from 'src/assets/examples/category.json';
 })
 export class StyleSelectorComponent implements OnInit {
 
+    @Output() chooseStyle = new EventEmitter<Style>();
     styles: Style[] = (stylesJSON as any).default;
     categories: Category[] = (categoriesJSON as any).default;
     matrix: Style[][] = [];
@@ -27,5 +28,9 @@ export class StyleSelectorComponent implements OnInit {
         this.matrix = this.categories.map(() => []);
         tmp.forEach((styles, i) => styles.forEach((style, j) => this.matrix[j][i] = style));
         this.matrix.forEach(styles => this.flattenMatrix.push(...styles));
+    }
+
+    choose(style: Style) {
+        this.chooseStyle.emit(style);
     }
 }
