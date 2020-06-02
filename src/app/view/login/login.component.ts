@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "yaba-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"],
+  selector: 'yaba-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
 /**
  * @title Input with a clear button
@@ -15,10 +15,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   btnClick() {
-    //if (email === 'ok' && password === 'ok') {
-    this.router.navigateByUrl("/beer-selection");
-    //} else {
+    // if (email === 'ok' && password === 'ok') {
+    this.router.navigateByUrl('/beer-selection');
+    // } else {
     //  console.log('Invalid email or password');
-    //}
+    // }
   }
 }

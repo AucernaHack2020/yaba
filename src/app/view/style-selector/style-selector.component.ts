@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { Style, Category } from "src/app/model";
-import { DataService } from "src/app/services/data.service";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Style, Category } from 'src/app/model';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: "yaba-style-selector",
-  templateUrl: "./style-selector.component.html",
-  styleUrls: ["./style-selector.component.css"],
+  selector: 'yaba-style-selector',
+  templateUrl: './style-selector.component.html',
+  styleUrls: ['./style-selector.component.css'],
 })
 export class StyleSelectorComponent implements OnInit {
   @Output() chooseStyle = new EventEmitter<Style>();
@@ -15,26 +15,26 @@ export class StyleSelectorComponent implements OnInit {
   flattenMatrix: Style[] = [];
   // tslint:disable-next-line: max-line-length
   colours = [
-    "#e6194B",
-    "#3cb44b",
-    "#ffe119",
-    "#4363d8",
-    "#f58231",
-    "#911eb4",
-    "#42d4f4",
-    "#f032e6",
-    "#bfef45",
-    "#fabebe",
-    "#469990",
-    "#e6beff",
-    "#9A6324",
-    "#fffac8",
-    "#800000",
-    "#aaffc3",
-    "#808000",
-    "#ffd8b1",
-    "#000075",
-    "#a9a9a9",
+    '#e6194B',
+    '#3cb44b',
+    '#ffe119',
+    '#4363d8',
+    '#f58231',
+    '#911eb4',
+    '#42d4f4',
+    '#f032e6',
+    '#bfef45',
+    '#fabebe',
+    '#469990',
+    '#e6beff',
+    '#9A6324',
+    '#fffac8',
+    '#800000',
+    '#aaffc3',
+    '#808000',
+    '#ffd8b1',
+    '#000075',
+    '#a9a9a9',
   ];
 
   constructor(private data: DataService) {}
