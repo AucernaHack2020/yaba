@@ -27,6 +27,7 @@ import { MashComponent } from './view/mash/mash.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { PlaygroundComponent } from './view/playground/playground.component';
 import { FormsModule } from '@angular/forms';
+import { BoilComponent } from './view/boil/boil.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     FlowChartComponent,
     IngredientElementComponent,
     MashComponent,
-    PlaygroundComponent
+    PlaygroundComponent,
+    BoilComponent
   ],
   imports: [
     BrowserModule,

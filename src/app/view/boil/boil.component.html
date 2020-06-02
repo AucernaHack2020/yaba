@@ -1,0 +1,12 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Boil
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <h3>Duration</h3>
+        <mat-slider [(ngModel)]="duration" (ngModelChange)="durationChange.emit($event)" thumbLabel min="60" max="180"></mat-slider>
+        {{duration}} Min
+    </mat-card-content>
+</mat-card>

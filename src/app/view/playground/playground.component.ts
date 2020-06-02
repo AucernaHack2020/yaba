@@ -11,6 +11,7 @@ export class PlaygroundComponent implements OnInit {
     mashDuration = 90;
     lauterTemp = 80;
     lauterDuration = 60;
+    boilDuration = 90;
 
     constructor() { }
 
