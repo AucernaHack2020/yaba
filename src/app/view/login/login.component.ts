@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   btnClick() {
     //if (email === 'ok' && password === 'ok') {
-    this.router.navigateByUrl("/ingredients-selection");
+    this.router.navigateByUrl("/beer-selection");
     //} else {
     //  console.log('Invalid email or password');
     //}
