@@ -20,46 +20,49 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
 import { IngredientElementComponent } from './view/ingredients-selection/ingredient-element/ingredient-element.component';
 import { MashComponent } from './view/mash/mash.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { PlaygroundComponent } from './view/playground/playground.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
-    declarations: [
-        AppComponent,
-        StyleSelectorComponent,
-        StyleSelectorItemComponent,
-        LoginComponent,
-        BeerSelectionComponent,
-        IngredientsSelectionComponent,
-        FlowChartComponent,
-        IngredientElementComponent,
-        MashComponent,
-        PlaygroundComponent,
-    ],
-    imports: [
-        BrowserModule,
-        ServiceWorkerModule.register('ngsw-worker.js', {
-            enabled: environment.production,
-        }),
-        BrowserAnimationsModule,
-        FormsModule,
-        MatGridListModule,
-        MatButtonModule,
-        MatExpansionModule,
-        MatIconModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatStepperModule,
-        MatSliderModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MatCardModule,
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    StyleSelectorComponent,
+    StyleSelectorItemComponent,
+    LoginComponent,
+    BeerSelectionComponent,
+    IngredientsSelectionComponent,
+    FlowChartComponent,
+    IngredientElementComponent,
+    MashComponent,
+    PlaygroundComponent
+  ],
+  imports: [
+    BrowserModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
+    BrowserAnimationsModule,
+    FormsModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatStepperModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatCardModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSliderModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

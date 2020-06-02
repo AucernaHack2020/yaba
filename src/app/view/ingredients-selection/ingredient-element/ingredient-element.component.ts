@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'yaba-ingredient-element',
   templateUrl: './ingredient-element.component.html',
-  styleUrls: ['./ingredient-element.component.css']
+  styleUrls: ['./ingredient-element.component.css'],
 })
 export class IngredientElementComponent implements OnInit {
+  // @Input() style: Ingredient;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
