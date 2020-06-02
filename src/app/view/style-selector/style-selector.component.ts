@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Style } from 'src/app/model';
+import { Style, Category } from 'src/app/model';
+import * as stylesJSON from 'src/assets/examples/styles.json';
+import * as categoriesJSON from 'src/assets/examples/category.json';
 
 @Component({
     selector: 'yaba-style-selector',
@@ -8,17 +10,22 @@ import { Style } from 'src/app/model';
 })
 export class StyleSelectorComponent implements OnInit {
 
-    styles: Style[] = [
-        // tslint:disable: max-line-length
-        { name: 'Berliner weise', srm: 3 }, { name: 'Lambic', srm: 10 }, { name: 'Belgian Gold Ale', srm: 5}, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined,
-        { name: 'Belgian white', srm: 3 }, { name: 'Gueuze', srm: 10 }, { name: 'Tripel', srm: 6 }, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined,
-        { name: 'American wheat', srm: 5 }, { name: 'Faro', srm: 10 }, { name: 'Saison', srm: 7 }, { name: 'Pale Ale', srm: 8 }
-        // tslint:enable: max-line-length
-    ];
+    styles: Style[] = (stylesJSON as any).default;
+    categories: Category[] = (categoriesJSON as any).default;
+    matrix: Style[][] = [];
+    flattenMatrix: Style[] = [];
+    // tslint:disable-next-line: max-line-length
+    colours = ['#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#bfef45', '#fabebe', '#469990', '#e6beff', '#9A6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#a9a9a9'];
 
     constructor() { }
 
-    ngOnInit(): void {
+    ngOnInit() {
+        const tmp = this.categories.map(cat => this.styles.filter(style => style.category._id === cat._id));
+        const max = tmp.map(styles => styles.length).reduce((prev, current) => Math.max(prev, current));
+        tmp.forEach((styles, i) => styles.forEach(style => style.colour = this.colours[i % this.colours.length]));
+        tmp.forEach(styles => styles.unshift(...Array.from({ length: max - styles.length }, () => null)));
+        this.matrix = this.categories.map(() => []);
+        tmp.forEach((styles, i) => styles.forEach((style, j) => this.matrix[j][i] = style));
+        this.matrix.forEach(styles => this.flattenMatrix.push(...styles));
     }
-
 }

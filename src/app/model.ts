@@ -1,4 +1,12 @@
-export interface Style {
+export interface Category {
+    _id: string;
     name: string;
-    srm: number;
 }
+export interface Style {
+    _id: string;
+    name: string;
+    // srm: number;
+    category: Category;
+    colour: string;
+}
+

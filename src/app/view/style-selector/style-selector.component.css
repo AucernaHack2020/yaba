@@ -3,6 +3,11 @@
 }
 
 :host {
-    margin: 1em;
+    margin: 0 0.2em;
     display: block;
+}
+
+:host ::ng-deep .header .mat-figure {
+    align-items: normal !important;
+    margin-top: 1em;
 }
