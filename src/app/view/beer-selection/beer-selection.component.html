@@ -2,27 +2,17 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Beer Types Templates:
+        Periodic Table of Beer Styles
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <!-- <mat-grid-list cols="4" rowHeight="100px">
-      <mat-grid-tile
-        *ngFor="let template of templates"
-        [colspan]="template.cols"
-        [rowspan]="template.rows"
-        [style.background]="template.color"
-      >
-        {{ template.name }}
-      </mat-grid-tile>
-    </mat-grid-list> -->
     <yaba-style-selector (chooseStyle)="style = $event"></yaba-style-selector>
-    <pre>{{style | json}}</pre>
+    <pre>{{ style | json }}</pre>
   </mat-expansion-panel>
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        My Recipes:
+        My Favourites
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-grid-list cols="4" rowHeight="100px">
@@ -40,7 +30,7 @@
 <p></p>
 <div align="center">
   <button mat-flat-button color="primary">
-      Continue
-      <mat-icon>double_arrow</mat-icon>
-    </button>
+    Continue
+    <mat-icon>double_arrow</mat-icon>
+  </button>
 </div>
