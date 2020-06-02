@@ -24,7 +24,7 @@ const GRAIN_DATA: GrainIngredient[] = [
     extract: 1.038,
     color: 3.5,
     percent: 2.91,
-    weight: 15,
+    weight: 10,
     usage: 'mash',
   },
 ];
@@ -40,6 +40,7 @@ const HOP_DATA: HopIngredient[] = [
     usage: 'boil',
     temperature: 90,
     ibu: 90,
+    time: 45,
   },
 ];
 
@@ -66,6 +67,7 @@ export class IngredientsSelectionComponent implements OnInit {
     'percent',
     'weight',
     'usage',
+    'delete',
   ];
   grainDataSource = GRAIN_DATA;
 
@@ -77,7 +79,9 @@ export class IngredientsSelectionComponent implements OnInit {
     'volume',
     'usage',
     'temperature',
+    'time',
     'ibu',
+    'delete',
   ];
   hopDataSource = HOP_DATA;
 
@@ -109,6 +113,7 @@ export class IngredientsSelectionComponent implements OnInit {
       volume: 0,
       usage: 'boil',
       temperature: 0,
+      time: 0,
       ibu: 0,
     });
     console.log(HOP_DATA);

@@ -29,6 +29,7 @@ export interface HopIngredient {
   volume: number;
   usage: string;
   temperature: number;
+  time: number;
   ibu: number;
 }
 

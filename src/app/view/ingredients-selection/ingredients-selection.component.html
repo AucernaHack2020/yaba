@@ -45,13 +45,23 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="weight">
     <mat-header-cell *matHeaderCellDef> Kg </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+    <mat-cell *matCellDef="let element"
+      ><input value="{{ element.weight }}" />
+    </mat-cell>
   </ng-container>
 
   <!-- Usage Column -->
   <ng-container matColumnDef="usage">
     <mat-header-cell *matHeaderCellDef> Usage </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{ element.usage }} </mat-cell>
+  </ng-container>
+
+  <!-- Delete Column -->
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-icon>delete</mat-icon>
+    </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedGrainColumns"></mat-header-row>
@@ -88,7 +98,9 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="weight">
     <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+    <mat-cell *matCellDef="let element">
+      <input value="{{ element.weight }}" />
+    </mat-cell>
   </ng-container>
 
   <!-- Volume Column -->
@@ -109,10 +121,26 @@
     <mat-cell *matCellDef="let element"> {{ element.temperature }} </mat-cell>
   </ng-container>
 
+  <!-- Time Column -->
+  <ng-container matColumnDef="time">
+    <mat-header-cell *matHeaderCellDef> Minutes </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <input value="{{ element.time }}" />
+    </mat-cell>
+  </ng-container>
+
   <!-- IBU Column -->
   <ng-container matColumnDef="ibu">
     <mat-header-cell *matHeaderCellDef> IBU </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{ element.ibu }} </mat-cell>
+  </ng-container>
+
+  <!-- Delete Column -->
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-icon>delete</mat-icon>
+    </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedHopColumns"></mat-header-row>
@@ -145,7 +173,9 @@
   <!-- Weight -->
   <ng-container matColumnDef="weight">
     <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+    <mat-cell *matCellDef="let element">
+      <input value="{{ element.weight }}" />
+    </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedYeastColumns"></mat-header-row>
@@ -155,7 +185,7 @@
 <mat-divider></mat-divider>
 <p></p>
 <div align="center">
-  <button mat-flat-button color="primary" (click)="btnClick()">
+  <button mat-flat-button color="primary">
     BREW
     <mat-icon>double_arrow</mat-icon>
   </button>
