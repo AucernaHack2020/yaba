@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Style } from 'src/app/model';
+import { Router } from '@angular/router';
 
 export interface Template {
   name: string;
@@ -15,6 +16,7 @@ export interface Template {
   styleUrls: ['./beer-selection.component.css'],
 })
 export class BeerSelectionComponent implements OnInit {
+  constructor(private router: Router) {}
   style: Style;
   myRecipes: Template[] = [
     {
@@ -28,4 +30,8 @@ export class BeerSelectionComponent implements OnInit {
   ];
 
   ngOnInit(): void {}
+
+  btnClick() {
+    this.router.navigateByUrl('/ingredients-selection');
+  }
 }

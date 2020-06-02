@@ -17,7 +17,6 @@ export interface GrainIngredient {
   color: number;
   percent: number;
   weight: number;
-  exclude: boolean;
   usage: string;
 }
 
@@ -31,4 +30,11 @@ export interface HopIngredient {
   usage: string;
   temperature: number;
   ibu: number;
+}
+
+export interface YeastIngredient {
+  _id: string;
+  name: string;
+  attenuation: number;
+  weight: number;
 }

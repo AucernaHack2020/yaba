@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Style, GrainIngredient, HopIngredient } from 'src/app/model';
+import {
+  Style,
+  GrainIngredient,
+  HopIngredient,
+  YeastIngredient,
+} from 'src/app/model';
 import { PipeCollector } from '@angular/compiler/src/template_parser/binding_parser';
+import { Router } from '@angular/router';
 
-let GRAIN_DATA: GrainIngredient[] = [
+const GRAIN_DATA: GrainIngredient[] = [
   {
     _id: '1',
     name: 'Cargill Special Pale',
@@ -10,7 +16,6 @@ let GRAIN_DATA: GrainIngredient[] = [
     color: 3.5,
     percent: 87.21,
     weight: 15,
-    exclude: false,
     usage: 'mash',
   },
   {
@@ -20,7 +25,6 @@ let GRAIN_DATA: GrainIngredient[] = [
     color: 3.5,
     percent: 2.91,
     weight: 15,
-    exclude: false,
     usage: 'mash',
   },
 ];
@@ -39,12 +43,22 @@ const HOP_DATA: HopIngredient[] = [
   },
 ];
 
+const YEAST_DATA: YeastIngredient[] = [
+  {
+    _id: '1',
+    name: 'Some Yeast',
+    attenuation: 90,
+    weight: 3.12,
+  },
+];
+
 @Component({
   selector: 'yaba-ingredients-selection',
   templateUrl: './ingredients-selection.component.html',
   styleUrls: ['./ingredients-selection.component.css'],
 })
 export class IngredientsSelectionComponent implements OnInit {
+  constructor(private router: Router) {}
   displayedGrainColumns: string[] = [
     'name',
     'extract',
@@ -52,7 +66,6 @@ export class IngredientsSelectionComponent implements OnInit {
     'percent',
     'weight',
     'usage',
-    'exclude',
   ];
   grainDataSource = GRAIN_DATA;
 
@@ -68,9 +81,40 @@ export class IngredientsSelectionComponent implements OnInit {
   ];
   hopDataSource = HOP_DATA;
 
+  displayedYeastColumns: string[] = ['name', 'attenuation', 'weight'];
+  yeastDataSource = YEAST_DATA;
+
   ngOnInit(): void {}
 
   addGrain() {
-    GRAIN_DATA = [...GRAIN_DATA];
+    GRAIN_DATA.push({
+      _id: '3',
+      name: '',
+      extract: 0,
+      color: 0,
+      percent: 0,
+      weight: 0,
+      usage: 'mash',
+    });
+    console.log(GRAIN_DATA);
+  }
+
+  addHop() {
+    HOP_DATA.push({
+      _id: '',
+      name: '0',
+      alpha: 0,
+      mode: 'pellet',
+      weight: 0,
+      volume: 0,
+      usage: 'boil',
+      temperature: 0,
+      ibu: 0,
+    });
+    console.log(HOP_DATA);
+  }
+
+  btnClick() {
+    this.router.navigateByUrl('/flow-chart');
   }
 }
