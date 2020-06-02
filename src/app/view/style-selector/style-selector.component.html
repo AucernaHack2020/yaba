@@ -1,11 +1,18 @@
-<h1 class="mat-h1">Periodic Table of Beer Styles</h1>
+<!--<h1 class="mat-h1">Periodic Table of Beer Styles</h1>-->
 <mat-grid-list [cols]="categories.length" rowHeight="3:4" gutterSize="0.5em">
-    <mat-grid-tile *ngFor="let style of flattenMatrix" (click)="choose(style)">
-        <yaba-style-selector-item [style]="style"></yaba-style-selector-item>
-    </mat-grid-tile>
-    <mat-grid-tile class="header" *ngFor="let cat of categories">
-        <div style="font-size: 10px; font-weight: bold; overflow: hidden; text-overflow: ellipsis;">
-            {{cat.name}}
-        </div>
-    </mat-grid-tile>
+  <mat-grid-tile *ngFor="let style of flattenMatrix" (click)="choose(style)">
+    <yaba-style-selector-item [style]="style"></yaba-style-selector-item>
+  </mat-grid-tile>
+  <mat-grid-tile class="header" *ngFor="let cat of categories">
+    <div
+      style="
+        font-size: 10px;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      "
+    >
+      {{ cat.name }}
+    </div>
+  </mat-grid-tile>
 </mat-grid-list>

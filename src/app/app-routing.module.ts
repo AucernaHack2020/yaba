@@ -7,6 +7,8 @@ import { IngredientsSelectionComponent } from './view/ingredients-selection/ingr
 import { BeerSelectionComponent } from './view/beer-selection/beer-selection.component';
 import { FlowChartComponent } from './view/flow-chart/flow-chart.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const appRoutes: Routes = [
   { path: 'table', component: StyleSelectorComponent },
@@ -19,7 +21,13 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(appRoutes), MatExpansionModule],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(appRoutes),
+    MatExpansionModule,
+    MatInputModule,
+    MatFormFieldModule,
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
