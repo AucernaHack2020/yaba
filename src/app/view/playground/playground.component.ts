@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GrainPicker } from '../grain-picker/grain-picker.component';
+import { GrainIngredient } from 'src/app/model';
 
 @Component({
     selector: 'yaba-playground',
@@ -12,13 +14,16 @@ export class PlaygroundComponent implements OnInit {
     lauterTemp = 80;
     lauterDuration = 60;
     boilDuration = 90;
+    grains: GrainIngredient[];
 
-    constructor() { }
+    constructor(
+        private grainPicker: GrainPicker
+    ) { }
 
     ngOnInit(): void {
     }
 
     pickGrain() {
-        
+        this.grainPicker.open().afterDismissed().subscribe(result => this.grains = result);
     }
 }

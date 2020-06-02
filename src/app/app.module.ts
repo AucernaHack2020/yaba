@@ -29,7 +29,7 @@ import { PlaygroundComponent } from './view/playground/playground.component';
 import { FormsModule } from '@angular/forms';
 import { BoilComponent } from './view/boil/boil.component';
 import { FermentationComponent } from './view/fermentation/fermentation.component';
-import { GrainPickerComponent } from './view/grain-picker/grain-picker.component';
+import { GrainPickerComponent, GrainPicker } from './view/grain-picker/grain-picker.component';
 import { MatListModule } from '@angular/material/list';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
@@ -75,5 +75,6 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     ],
     providers: [],
     bootstrap: [AppComponent],
+    entryComponents: [GrainPicker]
 })
 export class AppModule { }

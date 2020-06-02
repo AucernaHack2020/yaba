@@ -9,24 +9,6 @@ import { PipeCollector } from '@angular/compiler/src/template_parser/binding_par
 import { Router } from '@angular/router';
 
 const GRAIN_DATA: GrainIngredient[] = [
-  {
-    _id: '1',
-    name: 'Cargill Special Pale',
-    extract: 1.038,
-    color: 3.5,
-    percent: 87.21,
-    weight: 15,
-    usage: 'mash',
-  },
-  {
-    _id: '2',
-    name: 'Cargill Caramel 80',
-    extract: 1.038,
-    color: 3.5,
-    percent: 2.91,
-    weight: 10,
-    usage: 'mash',
-  },
 ];
 
 const HOP_DATA: HopIngredient[] = [
