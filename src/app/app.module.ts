@@ -16,6 +16,8 @@ import { FlowChartComponent } from './view/flow-chart/flow-chart.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatExpansionModule,
     MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
     AppRoutingModule,
     HttpClientModule
   ],
