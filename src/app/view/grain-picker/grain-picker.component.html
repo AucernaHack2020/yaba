@@ -1,0 +1,7 @@
+<pre>{{list.selectedOptions.selected.length}}</pre>
+<mat-selection-list #list>
+    <mat-list-option *ngFor="let grain of grains">
+        <div mat-line>{{grain.name}}</div>
+        <p mat-line>SRM: {{grain.colour.$numberDouble}} - Potential: {{grain.potential.$numberDouble}}</p>
+    </mat-list-option>
+</mat-selection-list>

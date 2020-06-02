@@ -31,6 +31,8 @@ import { BoilComponent } from './view/boil/boil.component';
 import { FermentationComponent } from './view/fermentation/fermentation.component';
 import { GrainPickerComponent } from './view/grain-picker/grain-picker.component';
 import { MatListModule } from '@angular/material/list';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
 
 @NgModule({
     declarations: [
@@ -68,7 +70,8 @@ import { MatListModule } from '@angular/material/list';
         MatTableModule,
         MatDividerModule,
         MatSliderModule,
-        MatListModule
+        MatListModule,
+        MatBottomSheetModule
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -8,26 +8,7 @@ import {
 import { PipeCollector } from '@angular/compiler/src/template_parser/binding_parser';
 import { Router } from '@angular/router';
 
-const GRAIN_DATA: GrainIngredient[] = [
-  {
-    _id: '1',
-    name: 'Cargill Special Pale',
-    extract: 1.038,
-    color: 3.5,
-    percent: 87.21,
-    weight: 15,
-    usage: 'mash',
-  },
-  {
-    _id: '2',
-    name: 'Cargill Caramel 80',
-    extract: 1.038,
-    color: 3.5,
-    percent: 2.91,
-    weight: 15,
-    usage: 'mash',
-  },
-];
+const GRAIN_DATA: GrainIngredient[] = [];
 
 const HOP_DATA: HopIngredient[] = [
   {
@@ -91,10 +72,11 @@ export class IngredientsSelectionComponent implements OnInit {
       _id: '3',
       name: '',
       extract: 0,
-      color: 0,
+      colour: 0,
       percent: 0,
       weight: 0,
-      usage: 'mash',
+      use: 'Mash',
+      type: 'Grain'
     });
     console.log(GRAIN_DATA);
   }

@@ -14,10 +14,11 @@ export interface GrainIngredient {
   _id: string;
   name: string;
   extract: number;
-  color: number;
+  colour: number;
   percent: number;
   weight: number;
-  usage: string;
+  use: string;
+  type: string;
 }
 
 export interface HopIngredient {
