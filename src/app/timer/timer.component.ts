@@ -26,7 +26,7 @@ export class TimerComponent implements OnInit {
     start() {
         this.startedAt = new Date().getTime();
         this.interval = setInterval(() => {
-            console.log((new Date().getTime() - this.startedAt) / 1000)
+            console.log((new Date().getTime() - this.startedAt) / 1000);
             this.totalSecs = this.duration * 60 - (new Date().getTime() - this.startedAt) / 1000;
             if (this.totalSecs < 0) {
                 clearInterval(this.interval);
