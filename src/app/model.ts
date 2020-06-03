@@ -40,3 +40,15 @@ export interface YeastIngredient {
   aa: number;
   weight: number;
 }
+
+export class Recipe {
+    name: string;
+    mashTemp: number;
+    mashDuration: number;
+    lauterTemp: number;
+    lauterDuration: number;
+    boilDuration: number;
+    grains: GrainIngredient[] = [];
+    hops: HopIngredient[] = [];
+    yast: YeastIngredient;
+}

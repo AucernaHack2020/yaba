@@ -19,7 +19,7 @@
     </table>
     <mat-divider></mat-divider>
     <h3 class="mat-h3">Grain</h3>
-    <mat-table [dataSource]="grainDataSource" class="mat-elevation-z8">
+    <mat-table [dataSource]="recipe.grains" class="mat-elevation-z8">
       <!-- Grain Name -->
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Grain </mat-header-cell>
@@ -84,7 +84,7 @@
     <p></p>
     <mat-divider></mat-divider>
     <h3 class="mat-h3">Hop</h3>
-    <mat-table [dataSource]="hopDataSource" class="mat-elevation-z8">
+    <mat-table [dataSource]="recipe.hops" class="mat-elevation-z8">
       <!-- Hop Name -->
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Hop </mat-header-cell>
