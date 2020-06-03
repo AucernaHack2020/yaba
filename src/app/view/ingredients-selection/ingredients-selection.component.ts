@@ -125,6 +125,7 @@ export class IngredientsSelectionComponent implements OnInit {
 
   chooseStyle(style: Style) {
     this.style = style;
+    this.styleName = style ? style.name : '';
     this.recipe.styleId = style._id;
     this.stepper.next();
     this.data.recipes().subscribe((recipes) => {
