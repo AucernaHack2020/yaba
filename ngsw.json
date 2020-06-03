@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1591212896580,
+  "timestamp": 1591213199190,
   "index": "https://aucernahack2020.github.io/yaba/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "https://aucernahack2020.github.io/yaba/favicon.ico",
         "https://aucernahack2020.github.io/yaba/index.html",
-        "https://aucernahack2020.github.io/yaba/main-es2015.1c2cd5b93a78a3da4c24.js",
-        "https://aucernahack2020.github.io/yaba/main-es5.1c2cd5b93a78a3da4c24.js",
+        "https://aucernahack2020.github.io/yaba/main-es2015.e1ba9d417505092496c2.js",
+        "https://aucernahack2020.github.io/yaba/main-es5.e1ba9d417505092496c2.js",
         "https://aucernahack2020.github.io/yaba/manifest.webmanifest",
         "https://aucernahack2020.github.io/yaba/polyfills-es2015.1f913f16a2d346cc8bdc.js",
         "https://aucernahack2020.github.io/yaba/polyfills-es5.1a3c78b07cd6f16c6e9a.js",
@@ -79,9 +79,9 @@
     "https://aucernahack2020.github.io/yaba/assets/images/step7.gif": "7756eeb2f5d5606c2d07cf7e9bb07d09f2b2956b",
     "https://aucernahack2020.github.io/yaba/assets/images/step8.gif": "05d2e66b8f0688f704418ea4b5a18d3406566254",
     "https://aucernahack2020.github.io/yaba/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://aucernahack2020.github.io/yaba/index.html": "012e8fda009a1940363ac0e64f81f4e9cf30358e",
-    "https://aucernahack2020.github.io/yaba/main-es2015.1c2cd5b93a78a3da4c24.js": "a67507ec335829d60bbd234886dc749bbae34477",
-    "https://aucernahack2020.github.io/yaba/main-es5.1c2cd5b93a78a3da4c24.js": "dc3893932f76794a0569df1335e671c1adc2bd8f",
+    "https://aucernahack2020.github.io/yaba/index.html": "b6dcdd9fb6e7a8017372468c3d72ecc31b53b1ec",
+    "https://aucernahack2020.github.io/yaba/main-es2015.e1ba9d417505092496c2.js": "45143b36d73991802fe9d9c5d8b543680637401c",
+    "https://aucernahack2020.github.io/yaba/main-es5.e1ba9d417505092496c2.js": "b5abe03dbf6f5126cecf62cbab2d7292572a2c4d",
     "https://aucernahack2020.github.io/yaba/manifest.webmanifest": "e10dd7ccaf0e4b4dacb65d0a566273f237e1dd69",
     "https://aucernahack2020.github.io/yaba/polyfills-es2015.1f913f16a2d346cc8bdc.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "https://aucernahack2020.github.io/yaba/polyfills-es5.1a3c78b07cd6f16c6e9a.js": "4c46a59a04fcad729e7b2431f01c09b3d92070c4",
