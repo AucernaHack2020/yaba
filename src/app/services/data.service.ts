@@ -8,7 +8,7 @@ import { shareReplay } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class DataService {
-    
+
     private cachedGrains: Observable<GrainIngredient[]>;
     private cachedHops: Observable<HopIngredient[]>;
 

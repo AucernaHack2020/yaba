@@ -1,30 +1,31 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   Style,
   GrainIngredient,
   HopIngredient,
   YeastIngredient,
   Recipe,
-} from "src/app/model";
-import { PipeCollector } from "@angular/compiler/src/template_parser/binding_parser";
-import { Router } from "@angular/router";
-import { DataService } from "src/app/services/data.service";
-import { GrainPicker } from "../grain-picker/grain-picker.component";
-import { HopPicker } from "../hop-picker/hop-picker.component";
-import { YeastPicker } from "../yeast-picker/yeast-picker.component";
-import { MatStepper } from "@angular/material/stepper";
+} from 'src/app/model';
+import { PipeCollector } from '@angular/compiler/src/template_parser/binding_parser';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
+import { GrainPicker } from '../grain-picker/grain-picker.component';
+import { HopPicker } from '../hop-picker/hop-picker.component';
+import { YeastPicker } from '../yeast-picker/yeast-picker.component';
+import { MatStepper } from '@angular/material/stepper';
 
 const yeastData: YeastIngredient[] = [];
 
 @Component({
-  selector: "yaba-ingredients-selection",
-  templateUrl: "./ingredients-selection.component.html",
-  styleUrls: ["./ingredients-selection.component.css"],
+  selector: 'yaba-ingredients-selection',
+  templateUrl: './ingredients-selection.component.html',
+  styleUrls: ['./ingredients-selection.component.css'],
 })
 export class IngredientsSelectionComponent implements OnInit {
-  @ViewChild("stepper") stepper: MatStepper;
+  @ViewChild('stepper') stepper: MatStepper;
   recipe: Recipe = new Recipe();
   style: Style;
+  styleName = 'Placeholder for Style';
 
   constructor(
     private router: Router,
@@ -35,32 +36,30 @@ export class IngredientsSelectionComponent implements OnInit {
   ) {}
 
   displayedGrainColumns: string[] = [
-    "name",
-    "potential",
-    "colour",
-    "percent",
-    "weight",
-    "use",
-    "delete",
+    'name',
+    'potential',
+    'colour',
+    'percent',
+    'weight',
+    'use',
+    'delete',
   ];
 
   displayedHopColumns: string[] = [
-    "name",
-    "alpha",
-    "weight",
-    "volume",
-    "time",
-    "ibu",
-    "delete",
+    'name',
+    'alpha',
+    'weight',
+    'volume',
+    'time',
+    'ibu',
+    'delete',
   ];
 
-  displayedYeastColumns: string[] = ["name", "aa", "weight"];
+  displayedYeastColumns: string[] = ['name', 'aa', 'weight'];
 
   yeastDataSource = yeastData;
 
-  ngOnInit(): void {
-    //
-  }
+  ngOnInit(): void {}
 
   addGrain() {
     this.grainPicker
@@ -114,13 +113,13 @@ export class IngredientsSelectionComponent implements OnInit {
   }
 
   btnClick() {
-    this.router.navigateByUrl("/flow-chart");
+    this.router.navigateByUrl('/flow-chart');
   }
 
   saveAndBrew() {
     this.stepper.next();
     this.data.createRecipe(this.recipe).subscribe(() => {
-      console.log("DONE");
+      console.log('DONE');
     });
   }
 
