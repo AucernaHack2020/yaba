@@ -98,7 +98,7 @@ export class IngredientsSelectionComponent implements OnInit {
         this.hopPicker.open().afterClosed().subscribe(hops => {
             this.recipe.hops.push(...hops);
             this.recipe.hops = this.recipe.hops.slice();
-        })
+        });
     }
 
     deleteGrain(rowId: number) {
