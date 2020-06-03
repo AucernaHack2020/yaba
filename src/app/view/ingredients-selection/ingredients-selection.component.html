@@ -67,8 +67,8 @@
       <!-- Delete Column -->
       <ng-container matColumnDef="delete">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-icon>delete</mat-icon>
+        <mat-cell *matCellDef="let element; let j = index">
+          <mat-icon (click)="deleteGrain(j)">delete</mat-icon>
         </mat-cell>
       </ng-container>
 
@@ -134,8 +134,8 @@
       <!-- Delete Column -->
       <ng-container matColumnDef="delete">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-icon>delete</mat-icon>
+        <mat-cell *matCellDef="let element; let j = index">
+          <mat-icon (click)="deleteHop(j)">delete</mat-icon>
         </mat-cell>
       </ng-container>
 

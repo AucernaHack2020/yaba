@@ -90,6 +90,20 @@ export class IngredientsSelectionComponent implements OnInit {
 
   addHop() {}
 
+  deleteGrain(rowId: number) {
+    if (rowId > -1) {
+      this.grainDataSource.splice(rowId, 1);
+      this.grainDataSource = this.grainDataSource.slice();
+    }
+  }
+
+  deleteHop(rowId: number) {
+    if (rowId > -1) {
+      this.hopDataSource.splice(rowId, 1);
+      this.hopDataSource = this.hopDataSource.slice();
+    }
+  }
+
   btnClick() {
     this.router.navigateByUrl('/flow-chart');
   }
