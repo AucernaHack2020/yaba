@@ -187,12 +187,12 @@
     <div fxLayout="row" fxLayoutGap="1em">
       <yaba-mash
         fxFlex
-        [(mashTemp)]="mashTemp"
-        [(mashDuration)]="mashDuration"
-        [(lauterTemp)]="lauterTemp"
-        [(lauterDuration)]="lauterDuration"
+        [(mashTemp)]="recipe.mashTemp"
+        [(mashDuration)]="recipe.mashDuration"
+        [(lauterTemp)]="recipe.lauterTemp"
+        [(lauterDuration)]="recipe.lauterDuration"
       ></yaba-mash>
-      <yaba-boil fxFlex [(duration)]="boilDuration"></yaba-boil>
+      <yaba-boil fxFlex [(duration)]="recipe.boilDuration"></yaba-boil>
     </div>
 
     <div align="end">
@@ -203,6 +203,6 @@
     </div>
   </mat-step>
   <mat-step label="Brewing process">
-    <yaba-flow-chart></yaba-flow-chart>
+    <yaba-flow-chart [recipe]="recipe"></yaba-flow-chart>
   </mat-step>
 </mat-horizontal-stepper>

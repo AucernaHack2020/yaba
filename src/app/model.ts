@@ -43,11 +43,11 @@ export interface YeastIngredient {
 
 export class Recipe {
     name: string;
-    mashTemp: number;
-    mashDuration: number;
-    lauterTemp: number;
-    lauterDuration: number;
-    boilDuration: number;
+    mashTemp = 66;
+    mashDuration = 90;
+    lauterTemp = 80;
+    lauterDuration = 60;
+    boilDuration = 90;
     grains: GrainIngredient[] = [];
     hops: HopIngredient[] = [];
     yast: YeastIngredient;

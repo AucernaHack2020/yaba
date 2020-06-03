@@ -1,17 +1,25 @@
 <mat-vertical-stepper>
-    <mat-step [editable]="false" label="Milling">
+    <mat-step [editable]="true" label="Milling">
         <img src="assets/images/step1.gif"/>
 
     </mat-step>
     <mat-step [editable]="false" label="Mashing">
-        <img src="assets/images/step2.gif"/>
-        <!-- <yaba-timer [duration]="mashDuration"></yaba-timer> -->
+        <div fxLayout="row" fxLayoutGap="1em">
+            <img fxFlex src="assets/images/step2.gif"/>
+            <yaba-timer fxFlex [duration]="recipe.mashDuration"></yaba-timer>
+        </div>
     </mat-step>
     <mat-step [editable]="false" label="Lautering">
-        <img src="assets/images/step3.gif"/>
+        <div fxLayout="row" fxLayoutGap="1em">
+            <img fxFlex src="assets/images/step3.gif"/>
+            <yaba-timer fxFlex [duration]="recipe.lauterDuration"></yaba-timer>
+        </div>
     </mat-step>
     <mat-step [editable]="false" label="Boiling">
-        <img src="assets/images/step4.gif"/>
+        <div fxLayout="row" fxLayoutGap="1em">
+            <img fxFlex src="assets/images/step4.gif"/>
+            <yaba-timer fxFlex [duration]="recipe.boilDuration"></yaba-timer>
+        </div>
     </mat-step>
     <mat-step [editable]="false" label="Cooling">
         <img src="assets/images/step5.gif"/>
