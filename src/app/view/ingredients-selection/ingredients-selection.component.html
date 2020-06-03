@@ -5,7 +5,7 @@
     <table cellspacing="0">
       <tr>
         <td>
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="outline">
             <mat-label>Batch Size</mat-label>
             <input matInput />
           </mat-form-field>
@@ -51,8 +51,10 @@
       <!-- Weight Column -->
       <ng-container matColumnDef="weight">
         <mat-header-cell *matHeaderCellDef> Kg </mat-header-cell>
-        <mat-cell *matCellDef="let element"
-          ><input value="{{ element.weight }}" />
+        <mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline">
+            <input matInput value="{{ element.weight }}" />
+          </mat-form-field>
         </mat-cell>
       </ng-container>
 
@@ -92,20 +94,18 @@
       <!-- Alpha -->
       <ng-container matColumnDef="alpha">
         <mat-header-cell *matHeaderCellDef> Alpha </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.alpha }} </mat-cell>
-      </ng-container>
-
-      <!-- ModeColumn -->
-      <ng-container matColumnDef="mode">
-        <mat-header-cell *matHeaderCellDef> Mode </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.mode }} </mat-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.alpha.$numberDouble }}
+        </mat-cell>
       </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="weight">
         <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <input value="{{ element.weight }}" />
+          <mat-form-field appearance="outline">
+            <input matInput value="{{ element.weight }}" />
+          </mat-form-field>
         </mat-cell>
       </ng-container>
 
@@ -115,25 +115,13 @@
         <mat-cell *matCellDef="let element"> {{ element.volume }} </mat-cell>
       </ng-container>
 
-      <!-- Usage Column -->
-      <ng-container matColumnDef="usage">
-        <mat-header-cell *matHeaderCellDef> Usage </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.usage }} </mat-cell>
-      </ng-container>
-
-      <!-- Temperature Column -->
-      <ng-container matColumnDef="temperature">
-        <mat-header-cell *matHeaderCellDef> Temp (C) </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          {{ element.temperature }}
-        </mat-cell>
-      </ng-container>
-
       <!-- Time Column -->
       <ng-container matColumnDef="time">
         <mat-header-cell *matHeaderCellDef> Minutes </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <input value="{{ element.time }}" />
+          <mat-form-field appearance="outline">
+            <input matInput value="{{ element.time }}" />
+          </mat-form-field>
         </mat-cell>
       </ng-container>
 
@@ -173,10 +161,10 @@
       </ng-container>
 
       <!-- Attenuation -->
-      <ng-container matColumnDef="attenuation">
+      <ng-container matColumnDef="aa">
         <mat-header-cell *matHeaderCellDef> Attenuation </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          {{ element.attenuation }}
+          {{ element.aa.$numberInt }}
         </mat-cell>
       </ng-container>
 
@@ -184,7 +172,9 @@
       <ng-container matColumnDef="weight">
         <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <input value="{{ element.weight }}" />
+          <mat-form-field appearance="outline">
+            <input matInput value="{{ element.weight }}" />
+          </mat-form-field>
         </mat-cell>
       </ng-container>
 

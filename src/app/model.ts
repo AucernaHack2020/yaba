@@ -37,6 +37,6 @@ export interface HopIngredient {
 export interface YeastIngredient {
   _id: string;
   name: string;
-  attenuation: number;
+  aa: number;
   weight: number;
 }

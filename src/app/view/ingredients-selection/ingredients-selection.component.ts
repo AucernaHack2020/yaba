@@ -31,7 +31,7 @@ const YEAST_DATA: YeastIngredient[] = [
   {
     _id: "1",
     name: "Some Yeast",
-    attenuation: 90,
+    aa: 90,
     weight: 3.12,
   },
 ];
@@ -58,18 +58,15 @@ export class IngredientsSelectionComponent implements OnInit {
   displayedHopColumns: string[] = [
     "name",
     "alpha",
-    "mode",
     "weight",
     "volume",
-    "usage",
-    "temperature",
     "time",
     "ibu",
     "delete",
   ];
   hopDataSource = HOP_DATA;
 
-  displayedYeastColumns: string[] = ["name", "attenuation", "weight"];
+  displayedYeastColumns: string[] = ["name", "aa", "weight"];
   yeastDataSource = YEAST_DATA;
   mashTemp = 66;
   mashDuration = 90;
@@ -91,21 +88,7 @@ export class IngredientsSelectionComponent implements OnInit {
       });
   }
 
-  addHop() {
-    HOP_DATA.push({
-      _id: "",
-      name: "0",
-      alpha: 0,
-      mode: "pellet",
-      weight: 0,
-      volume: 0,
-      usage: "boil",
-      temperature: 0,
-      time: 0,
-      ibu: 0,
-    });
-    console.log(HOP_DATA);
-  }
+  addHop() {}
 
   btnClick() {
     this.router.navigateByUrl("/flow-chart");
