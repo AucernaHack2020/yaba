@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add Yeast</h1>
+<div mat-dialog-content style="width: 450px; height: 450px;">
+  <mat-spinner *ngIf="!yeasts"></mat-spinner>
+  <mat-selection-list #list [multiple]="false">
+    <mat-list-option [value]="yeast" *ngFor="let yeast of yeasts">
+      <mat-icon mat-list-icon>science</mat-icon>
+      <div mat-line>{{ yeast.name }}</div>
+      <p mat-line>
+        Attenuation: {{ yeast.aa.$numberDouble || yeast.aa.$numberInt }}
+      </p>
+    </mat-list-option>
+  </mat-selection-list>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-stroked-button color="primary" [mat-dialog-close]>
+    <mat-icon>close</mat-icon> Cancel
+  </button>
+  <button mat-flat-button color="primary" (click)="ok()">
+    Select
+  </button>
+</div>

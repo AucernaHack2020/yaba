@@ -42,17 +42,17 @@ export interface YeastIngredient {
 }
 
 export class Recipe {
-    // tslint:disable-next-line: variable-name
-    _id: any;
-    name: string;
-    styleId: string;
-    // StyleId: string;
-    mashTemp = 66;
-    mashDuration = 90;
-    lauterTemp = 80;
-    lauterDuration = 60;
-    boilDuration = 90;
-    grains: GrainIngredient[] = [];
-    hops: HopIngredient[] = [];
-    yast: YeastIngredient;
+  // tslint:disable-next-line: variable-name
+  _id: any;
+  name: string;
+  styleId: string;
+  // StyleId: string;
+  mashTemp = 66;
+  mashDuration = 90;
+  lauterTemp = 80;
+  lauterDuration = 60;
+  boilDuration = 90;
+  grains: GrainIngredient[] = [];
+  hops: HopIngredient[] = [];
+  yeast: YeastIngredient;
 }
