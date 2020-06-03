@@ -5,7 +5,7 @@ body {
   padding: 0;
 }
 body {
-  background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
+  background-image: url(/assets/images/Beer5.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@ body {
   position: relative;
   top: 0;
   opacity: 1;
-  float: left;
+  float: right;
   padding: 60px 50px 40px 50px;
   width: 100%;
   background: #fff;
