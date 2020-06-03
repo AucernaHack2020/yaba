@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1591107870930,
+  "timestamp": 1591212541822,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -10,14 +10,14 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.ee650efc5a2f3b95de54.js",
-        "/main-es5.ee650efc5a2f3b95de54.js",
+        "/main-es2015.1c2cd5b93a78a3da4c24.js",
+        "/main-es5.1c2cd5b93a78a3da4c24.js",
         "/manifest.webmanifest",
         "/polyfills-es2015.1f913f16a2d346cc8bdc.js",
         "/polyfills-es5.1a3c78b07cd6f16c6e9a.js",
         "/runtime-es2015.0811dcefd377500b5b1a.js",
         "/runtime-es5.0811dcefd377500b5b1a.js",
-        "/styles.f52187462d1cfca0d78e.css"
+        "/styles.01008524ecadfdd63dd4.css"
       ],
       "patterns": []
     },
@@ -26,8 +26,6 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
-        "/assets/examples/category.json",
-        "/assets/examples/styles.json",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -35,15 +33,28 @@
         "/assets/icons/icon-384x384.png",
         "/assets/icons/icon-512x512.png",
         "/assets/icons/icon-72x72.png",
-        "/assets/icons/icon-96x96.png"
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/Beer1.png",
+        "/assets/images/Beer2.png",
+        "/assets/images/Beer3.png",
+        "/assets/images/Beer4.png",
+        "/assets/images/Beer5.jpg",
+        "/assets/images/TeamLogo.png",
+        "/assets/images/background.jpg",
+        "/assets/images/step1.gif",
+        "/assets/images/step2.gif",
+        "/assets/images/step3.gif",
+        "/assets/images/step4.gif",
+        "/assets/images/step5.gif",
+        "/assets/images/step6.gif",
+        "/assets/images/step7.gif",
+        "/assets/images/step8.gif"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/assets/examples/category.json": "d1d456f016327ac2b2f5fcd41b7907c44e64f7e0",
-    "/assets/examples/styles.json": "b3965d7f1331ba458595ffb1daa6e6296f72285b",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -52,16 +63,31 @@
     "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
     "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/images/Beer1.png": "7ea81797681952e9a6b1b65873529b1c0dc8d55b",
+    "/assets/images/Beer2.png": "c00a792085c0046c7b419973c5d429ababd12ec9",
+    "/assets/images/Beer3.png": "3be922495905e1a58988aea561117370e7617218",
+    "/assets/images/Beer4.png": "5201a5595a75cfefb59f637e049f3fb1fccffc0a",
+    "/assets/images/Beer5.jpg": "4c351a63e41ce396bd8873a96f77681d17cfbbcb",
+    "/assets/images/TeamLogo.png": "ab381ab45738d73e0a47eee81d19d169a952b9a3",
+    "/assets/images/background.jpg": "1ad2e8b439d184320ec130ca547f94bc91fdd95a",
+    "/assets/images/step1.gif": "c55e6a327dded6fb2559c5bf33ccf258db38613b",
+    "/assets/images/step2.gif": "2bb883d31f6fe6e55718508ee30d3234aa25d419",
+    "/assets/images/step3.gif": "4443a923fea5a65fb1525a8e843cda4ed37da6f9",
+    "/assets/images/step4.gif": "d3aa3ef4ebbabedf9a255fc5ee44053efc56587b",
+    "/assets/images/step5.gif": "5abe666acd51e57f5ac15e94b50b3bccba35a0bd",
+    "/assets/images/step6.gif": "a643412567507b80e246892b8f88184335d3183b",
+    "/assets/images/step7.gif": "7756eeb2f5d5606c2d07cf7e9bb07d09f2b2956b",
+    "/assets/images/step8.gif": "05d2e66b8f0688f704418ea4b5a18d3406566254",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "1174b00361144ff526ae8251b31a75465a5a4988",
-    "/main-es2015.ee650efc5a2f3b95de54.js": "fa93bd9e7f1261d1c696582aa3ead39ae346f58c",
-    "/main-es5.ee650efc5a2f3b95de54.js": "8863bca2367a862649d18e140e4598a10bff76f3",
-    "/manifest.webmanifest": "bfae0792c0b5bb4c344ae24f88f657b00defbcf0",
+    "/index.html": "7bd37f364e7dce178e78f1c45920e1632fbeaecb",
+    "/main-es2015.1c2cd5b93a78a3da4c24.js": "a67507ec335829d60bbd234886dc749bbae34477",
+    "/main-es5.1c2cd5b93a78a3da4c24.js": "dc3893932f76794a0569df1335e671c1adc2bd8f",
+    "/manifest.webmanifest": "e10dd7ccaf0e4b4dacb65d0a566273f237e1dd69",
     "/polyfills-es2015.1f913f16a2d346cc8bdc.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "/polyfills-es5.1a3c78b07cd6f16c6e9a.js": "4c46a59a04fcad729e7b2431f01c09b3d92070c4",
     "/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/runtime-es5.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.f52187462d1cfca0d78e.css": "507c9903e3b5f1b7df98b4ce2d9b9656a18abae0"
+    "/styles.01008524ecadfdd63dd4.css": "507c9903e3b5f1b7df98b4ce2d9b9656a18abae0"
   },
   "navigationUrls": [
     {
