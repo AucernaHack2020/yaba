@@ -35,6 +35,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +51,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         PlaygroundComponent,
         BoilComponent,
         FermentationComponent,
-        GrainPickerComponent
+        GrainPickerComponent,
+        TimerComponent
     ],
     imports: [
         BrowserModule,

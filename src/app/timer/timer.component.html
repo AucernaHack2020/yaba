@@ -1,0 +1,7 @@
+<div class="main">
+    <div>
+        {{hours}} : {{minutes | number:'2.0-0'}} : {{seconds | number:'2.0-0'}}
+    </div>
+</div>
+<button mat-flat-button *ngIf="!startedAt" color="primary" (click)="start()"><mat-icon>play_arrow</mat-icon></button>
+<button mat-flat-button *ngIf="startedAt" color="primary" (click)="reset()"><mat-icon>replay</mat-icon></button>

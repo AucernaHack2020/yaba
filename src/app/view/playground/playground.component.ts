@@ -9,12 +9,7 @@ import { GrainIngredient } from 'src/app/model';
 })
 export class PlaygroundComponent implements OnInit {
 
-    mashTemp = 66;
-    mashDuration = 90;
-    lauterTemp = 80;
-    lauterDuration = 60;
-    boilDuration = 90;
-    grains: GrainIngredient[];
+    finished = false;
 
     constructor(
         private grainPicker: GrainPicker
@@ -22,8 +17,5 @@ export class PlaygroundComponent implements OnInit {
 
     ngOnInit(): void {
     }
-
-    pickGrain() {
-        this.grainPicker.open().afterClosed().subscribe(result => this.grains = result);
-    }
+    
 }

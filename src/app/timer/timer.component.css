@@ -1,0 +1,21 @@
+.main {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: black;
+    width: 260px;
+    height: 60px;
+    color: green;
+    font-size: 60px;
+    line-height: 60px;
+    padding: 10px;
+}
+
+:host {
+    display: block;
+}
+
+button {
+    width: 280px;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}

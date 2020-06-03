@@ -1,18 +1,5 @@
-<button mat-flat-button (click)="pickGrain()">Pick Grains</button>
-Result <pre>{{grains | json}}</pre>
-<mat-divider></mat-divider>
-<yaba-mash
-    [(mashTemp)]="mashTemp"
-    [(mashDuration)]="mashDuration"
-    [(lauterTemp)]="lauterTemp"
-    [(lauterDuration)]="lauterDuration"
-></yaba-mash>
+<div style="margin: 1em;">
+    <yaba-timer [duration]="0.2" (finish)="finished = true"></yaba-timer>
+    finished: {{finished}}
+</div>
 
-Result:
-Mash Temp: {{mashTemp}}, Mash duration: {{mashDuration}}, 
-lauter Temp: {{lauterTemp}}, lauter duration: {{lauterDuration}}
-<mat-divider></mat-divider>
-<yaba-boil [(duration)]="boilDuration"></yaba-boil>
-Result: boilDuration = {{boilDuration}} min
-<mat-divider></mat-divider>
-<!-- <yaba-style-selector></yaba-style-selector> -->
