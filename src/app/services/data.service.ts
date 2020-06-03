@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Style, Category, GrainIngredient, HopIngredient, YeastIngredient } from '../model';
+import { Style, Category, GrainIngredient, HopIngredient, YeastIngredient, Recipe } from '../model';
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 
@@ -8,8 +8,9 @@ import { shareReplay } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class DataService {
-
+    
     private cachedGrains: Observable<GrainIngredient[]>;
+    private cachedHops: Observable<HopIngredient[]>;
 
     private base = 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/yabastitch-ipyan/service';
 
@@ -33,10 +34,22 @@ export class DataService {
     }
 
     hops() {
-        return this.http.get<HopIngredient[]>(`${this.base}/hops/incoming_webhook/hops_get`);
+        if (!this.cachedHops) {
+            this.cachedHops = this.http.get<HopIngredient[]>(`${this.base}/hops/incoming_webhook/hops_get`).pipe(shareReplay());
+        }
+        return this.cachedHops;
     }
 
     yeasts() {
         return this.http.get<YeastIngredient[]>(`${this.base}/yeasts/incoming_webhook/yeasts_get`);
     }
+
+    recipes() {
+        return this.http.get<Recipe[]>(`${this.base}/recipes/incoming_webhook/recipes_get`);
+    }
+
+    createRecipe(recipe: Recipe) {
+        return this.http.post<Recipe>(`${this.base}/recipes/incoming_webhook/recipes_post`, recipe);
+    }
+
 }

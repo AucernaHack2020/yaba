@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
     Style,
     GrainIngredient,
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { GrainPicker } from '../grain-picker/grain-picker.component';
 import { HopPicker } from '../hop-picker/hop-picker.component';
+import { MatStepper } from '@angular/material/stepper';
 
 // const GRAIN_DATA: GrainIngredient[] = [];
 
@@ -45,9 +46,16 @@ const YEAST_DATA: YeastIngredient[] = [
 })
 export class IngredientsSelectionComponent implements OnInit {
 
+    @ViewChild('stepper') stepper: MatStepper;
     recipe: Recipe = new Recipe();
+    style: Style;
 
-    constructor(private router: Router, private grainPicker: GrainPicker, private hopPicker: HopPicker) { }
+    constructor(
+        private router: Router,
+        private grainPicker: GrainPicker,
+        private hopPicker: HopPicker,
+        private data: DataService
+    ) { }
 
     displayedGrainColumns: string[] = [
         'name',
@@ -109,5 +117,34 @@ export class IngredientsSelectionComponent implements OnInit {
 
     btnClick() {
         this.router.navigateByUrl('/flow-chart');
+    }
+
+    saveAndBrew() {
+        this.stepper.next();
+        this.data.createRecipe(this.recipe).subscribe(() => {
+            console.log('DONE');
+        });
+    }
+
+    chooseStyle(style: Style) {
+        this.style = style;
+        this.recipe.styleId = style._id;
+        this.stepper.next();
+        this.data.recipes().subscribe(recipes => {
+            const pre = recipes.filter(r => r.styleId === style._id);
+            if (pre.length) {
+                this.recipe = pre[this.rnd(pre.length)];
+                this.recipe._id = undefined;
+                this.recipe.mashDuration = (this.recipe.mashDuration as any).$numberInt;
+                this.recipe.mashTemp = (this.recipe.mashTemp as any).$numberInt;
+                this.recipe.lauterDuration = (this.recipe.lauterDuration as any).$numberInt;
+                this.recipe.lauterTemp = (this.recipe.lauterTemp as any).$numberInt;
+                this.recipe.boilDuration = (this.recipe.boilDuration as any).$numberInt;
+            }
+        });
+    }
+
+    private rnd(max) {
+        return Math.floor(Math.random() * max);
     }
 }

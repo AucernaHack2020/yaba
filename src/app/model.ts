@@ -42,7 +42,11 @@ export interface YeastIngredient {
 }
 
 export class Recipe {
+    // tslint:disable-next-line: variable-name
+    _id: any;
     name: string;
+    styleId: string;
+    // StyleId: string;
     mashTemp = 66;
     mashDuration = 90;
     lauterTemp = 80;
