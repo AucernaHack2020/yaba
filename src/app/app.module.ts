@@ -36,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TimerComponent } from './timer/timer.component';
+import { HopPickerComponent } from './view/hop-picker/hop-picker.component';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import { TimerComponent } from './timer/timer.component';
         BoilComponent,
         FermentationComponent,
         GrainPickerComponent,
-        TimerComponent
+        TimerComponent,
+        HopPickerComponent
     ],
     imports: [
         BrowserModule,

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'yaba-flow-chart',
-  templateUrl: './flow-chart.component.html',
-  styleUrls: ['./flow-chart.component.css']
+    selector: 'yaba-flow-chart',
+    templateUrl: './flow-chart.component.html',
+    styleUrls: ['./flow-chart.component.css']
 })
 export class FlowChartComponent implements OnInit {
+    
+    constructor() { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

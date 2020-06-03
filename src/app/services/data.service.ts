@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Style, Category, GrainIngredient } from '../model';
+import { Style, Category, GrainIngredient, HopIngredient, YeastIngredient } from '../model';
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 
@@ -33,10 +33,10 @@ export class DataService {
     }
 
     hops() {
-        return this.http.get<GrainIngredient[]>(`${this.base}/hops/incoming_webhook/hops_get`);
+        return this.http.get<HopIngredient[]>(`${this.base}/hops/incoming_webhook/hops_get`);
     }
 
     yeasts() {
-        return this.http.get<GrainIngredient[]>(`${this.base}/yeasts/incoming_webhook/yeasts_get`);
+        return this.http.get<YeastIngredient[]>(`${this.base}/yeasts/incoming_webhook/yeasts_get`);
     }
 }

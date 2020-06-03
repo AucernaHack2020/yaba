@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Add Hops</h1>
+<div mat-dialog-content style="width: 450px; height: 450px;">
+    <mat-spinner *ngIf="!hops"></mat-spinner>
+    <mat-selection-list #list>
+        <mat-list-option [value]="hop" *ngFor="let hop of hops">
+            <mat-icon mat-list-icon>spa</mat-icon>
+            <div mat-line>{{hop.name}}</div>
+            <p mat-line>Alpha: {{hop.alpha.$numberDouble || hop.alpha.$numberInt}}</p>
+        </mat-list-option>
+    </mat-selection-list>    
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button color="primary" [mat-dialog-close]>
+        <mat-icon>close</mat-icon> Cancel
+    </button>
+    <button mat-flat-button color="primary" (click)="ok()">
+        <mat-icon>add</mat-icon> Select ({{list.selectedOptions.selected.length}})
+    </button>
+</div>

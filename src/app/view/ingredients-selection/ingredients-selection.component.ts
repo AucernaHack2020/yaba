@@ -9,6 +9,7 @@ import { PipeCollector } from '@angular/compiler/src/template_parser/binding_par
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { GrainPicker } from '../grain-picker/grain-picker.component';
+import { HopPicker } from '../hop-picker/hop-picker.component';
 
 const GRAIN_DATA: GrainIngredient[] = [];
 
@@ -42,7 +43,7 @@ const YEAST_DATA: YeastIngredient[] = [
   styleUrls: ['./ingredients-selection.component.css'],
 })
 export class IngredientsSelectionComponent implements OnInit {
-  constructor(private router: Router, private grainPicker: GrainPicker) {}
+  constructor(private router: Router, private grainPicker: GrainPicker, private hopPicker: HopPicker) {}
 
   displayedGrainColumns: string[] = [
     'name',
@@ -88,7 +89,12 @@ export class IngredientsSelectionComponent implements OnInit {
       });
   }
 
-  addHop() {}
+  addHop() {
+      this.hopPicker.open().afterClosed().subscribe(hops => {
+          this.hopDataSource.push(...hops);
+          this.hopDataSource = this.hopDataSource.slice();
+      })
+  }
 
   deleteGrain(rowId: number) {
     if (rowId > -1) {
