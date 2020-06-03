@@ -34,6 +34,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -74,7 +75,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         MatListModule,
         MatBottomSheetModule,
         MatDialogModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        FlexLayoutModule
     ],
     providers: [],
     bootstrap: [AppComponent],

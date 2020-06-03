@@ -186,7 +186,17 @@
         <p></p>
         <mat-divider></mat-divider>
         <p></p>
-        <div align="center">
+        <div fxLayout="row" fxLayoutGap="1em">
+            <yaba-mash fxFlex
+                [(mashTemp)]="mashTemp"
+                [(mashDuration)]="mashDuration"
+                [(lauterTemp)]="lauterTemp"
+                [(lauterDuration)]="lauterDuration"
+            ></yaba-mash>
+            <yaba-boil fxFlex [(duration)]="boilDuration"></yaba-boil>
+        </div>
+        
+        <div align="end">
           <button mat-flat-button (click)="stepper.next()" color="primary">
             BREW
             <mat-icon>double_arrow</mat-icon>

@@ -76,6 +76,11 @@ export class IngredientsSelectionComponent implements OnInit {
 
     displayedYeastColumns: string[] = ['name', 'attenuation', 'weight'];
     yeastDataSource = YEAST_DATA;
+    mashTemp = 66;
+    mashDuration = 90;
+    lauterTemp = 80;
+    lauterDuration = 60;
+    boilDuration = 90;
 
     ngOnInit(): void {
         //
