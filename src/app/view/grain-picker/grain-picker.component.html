@@ -1,7 +1,19 @@
-<mat-selection-list #list>
-    <mat-list-option [value]="grain" *ngFor="let grain of grains">
-        <div mat-line>{{grain.name}}</div>
-        <p mat-line>SRM: {{grain.colour.$numberDouble}} - Potential: {{grain.potential.$numberDouble}}</p>
-    </mat-list-option>
-</mat-selection-list>
-<button mat-button (close)="close()">Select</button>
+<h1 mat-dialog-title>Add Grains</h1>
+<div mat-dialog-content style="width: 450px; height: 450px;">
+    <mat-spinner *ngIf="!grains"></mat-spinner>
+    <mat-selection-list #list>
+        <mat-list-option [value]="grain" *ngFor="let grain of grains">
+            <mat-icon mat-list-icon [style.color]="color(grain.colour.$numberDouble || grain.colour.$numberInt || 0)">stop</mat-icon>
+            <div mat-line>{{grain.name}}</div>
+            <p mat-line>SRM: {{grain.colour.$numberDouble || grain.colour.$numberInt}} - Potential: {{grain.potential.$numberDouble}}</p>
+        </mat-list-option>
+    </mat-selection-list>    
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button color="primary" [mat-dialog-close]>
+        <mat-icon>close</mat-icon> Cancel
+    </button>
+    <button mat-flat-button color="primary" (click)="ok()">
+        <mat-icon>add</mat-icon> Select ({{list.selectedOptions.selected.length}})
+    </button>
+</div>

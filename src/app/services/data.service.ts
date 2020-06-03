@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Style, Category, GrainIngredient } from '../model';
+import { Observable } from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DataService {
+
+    private cachedGrains: Observable<GrainIngredient[]>;
 
     private base = 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/yabastitch-ipyan/service';
 
@@ -22,7 +26,10 @@ export class DataService {
     }
 
     grains() {
-        return this.http.get<GrainIngredient[]>(`${this.base}/grains/incoming_webhook/grains_get`);
+        if (!this.cachedGrains) {
+            this.cachedGrains = this.http.get<GrainIngredient[]>(`${this.base}/grains/incoming_webhook/grains_get`).pipe(shareReplay());
+        }
+        return this.cachedGrains;
     }
 
     hops() {

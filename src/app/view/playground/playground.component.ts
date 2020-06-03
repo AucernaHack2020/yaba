@@ -24,6 +24,6 @@ export class PlaygroundComponent implements OnInit {
     }
 
     pickGrain() {
-        this.grainPicker.open().afterDismissed().subscribe(result => this.grains = result);
+        this.grainPicker.open().afterClosed().subscribe(result => this.grains = result);
     }
 }

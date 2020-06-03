@@ -32,7 +32,8 @@ import { FermentationComponent } from './view/fermentation/fermentation.componen
 import { GrainPickerComponent, GrainPicker } from './view/grain-picker/grain-picker.component';
 import { MatListModule } from '@angular/material/list';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
@@ -71,7 +72,9 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
         MatDividerModule,
         MatSliderModule,
         MatListModule,
-        MatBottomSheetModule
+        MatBottomSheetModule,
+        MatDialogModule,
+        MatProgressSpinnerModule
     ],
     providers: [],
     bootstrap: [AppComponent],
