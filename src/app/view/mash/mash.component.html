@@ -15,7 +15,7 @@
         <mat-slider [(ngModel)]="lauterTemp" (ngModelChange)="lauterTempChange.emit($event)" thumbLabel min="30" max="100"></mat-slider>
         {{lauterTemp}} °C
         <h3>Lauter Duration (Minutes)</h3>
-        <mat-slider [(ngModel)]="lauterDuration" (ngModelChange)="lauterDurationChange.emit($event)" thumbLabel min="30" max="120"></mat-slider>
+        <mat-slider [(ngModel)]="lauterDuration" (ngModelChange)="lauterDurationChange.emit($event)" thumbLabel min="1" max="120"></mat-slider>
         {{lauterDuration}} min
     </mat-card-content>
 </mat-card>

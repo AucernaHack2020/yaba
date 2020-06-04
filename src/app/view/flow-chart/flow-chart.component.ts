@@ -34,6 +34,28 @@ export class FlowChartComponent implements OnInit {
       .subscribe(() => this.stepper.next());
   }
 
+  finishLautering() {
+    this.snackBar
+      .open('Lautering has been finished!', 'Next step?')
+      .onAction()
+      .subscribe(() => this.stepper.next());
+  }
+
+  finishCooling() {
+    this.snackBar
+      .open('Cooling has been finished!', 'Next step?')
+      .onAction()
+      .subscribe(() => this.stepper.next());
+  }
+
+
+  finishBoil() {
+    this.snackBar
+      .open('Boil has been finished!', 'Next step?')
+      .onAction()
+      .subscribe(() => this.stepper.next());
+  }
+
   inviteFriends() {
     location.href =
       'mailto:mybeer.buddies@shaw.ca?subject=Beer is ready&body=Bring sausages and pretzels!';
