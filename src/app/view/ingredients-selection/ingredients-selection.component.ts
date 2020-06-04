@@ -14,6 +14,7 @@ import { HopPicker } from '../hop-picker/hop-picker.component';
 import { YeastPicker } from '../yeast-picker/yeast-picker.component';
 import { MatStepper } from '@angular/material/stepper';
 import { CalcService } from 'src/app/services/calc.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const yeastData: YeastIngredient[] = [];
 
@@ -28,7 +29,7 @@ export class IngredientsSelectionComponent implements OnInit {
     style: Style;
 
     constructor(
-        private router: Router,
+        private snackBar: MatSnackBar,
         private grainPicker: GrainPicker,
         private hopPicker: HopPicker,
         private yeastPicker: YeastPicker,
@@ -58,8 +59,6 @@ export class IngredientsSelectionComponent implements OnInit {
 
     displayedYeastColumns: string[] = ['name', 'aa', 'weight'];
 
-    yeastDataSource = yeastData;
-
     ngOnInit(): void { }
 
     addGrain() {
@@ -77,6 +76,7 @@ export class IngredientsSelectionComponent implements OnInit {
             .open()
             .afterClosed()
             .subscribe((hops) => {
+                hops.forEach(h => h.time = this.recipe.boilDuration);
                 this.recipe.hops.push(...hops);
                 this.recipe.hops = this.recipe.hops.slice();
             });
@@ -89,12 +89,6 @@ export class IngredientsSelectionComponent implements OnInit {
             .subscribe((yeasts) => {
                 if (yeasts.length > 0) {
                     this.recipe.yeast = yeasts[0];
-                    if (this.yeastDataSource.length > 0) {
-                        this.yeastDataSource[0] = yeasts[0];
-                    } else {
-                        this.yeastDataSource.push(...yeasts);
-                    }
-                    this.yeastDataSource = this.yeastDataSource.slice();
                 }
             });
     }
@@ -113,14 +107,10 @@ export class IngredientsSelectionComponent implements OnInit {
         }
     }
 
-    btnClick() {
-        this.router.navigateByUrl('/flow-chart');
-    }
-
     saveAndBrew() {
         this.stepper.next();
         this.data.createRecipe(this.recipe).subscribe(() => {
-            console.log('DONE');
+            this.snackBar.open('Recipe has been saved!', 'close', { duration: 3000 });
         });
     }
 
@@ -140,7 +130,12 @@ export class IngredientsSelectionComponent implements OnInit {
                 this.recipe.lauterDuration = this.calc.fix(this.recipe.lauterDuration);
                 this.recipe.lauterTemp = this.calc.fix(this.recipe.lauterTemp);
                 this.recipe.boilDuration = this.calc.fix(this.recipe.boilDuration);
-                this.recipe.grains.forEach(g => g.weight = this.calc.fix(g.weight))
+                this.recipe.grains.forEach(g => g.weight = this.calc.fix(g.weight));
+                this.recipe.hops.forEach(h => {
+                    h.weight = this.calc.fix(h.weight);
+                    h.time = this.calc.fix(h.time);
+                });
+                this.recipe.yeast.weight = this.calc.fix(this.recipe.yeast.weight);
             } else {
                 this.recipe.name = `My own ${style.name}`;
                 this.recipe.size = 20; //  default batch size
@@ -152,8 +147,24 @@ export class IngredientsSelectionComponent implements OnInit {
         return this.calc.og(this.recipe);
     }
 
+    get fg() {
+        return this.calc.fg(this.recipe);
+    }
+
+    get abv() {
+        return this.calc.abv(this.recipe);
+    }
+
+    get ibu() {
+        return this.calc.ibu(this.recipe);
+    }
+
     get totalWeight() {
         return this.calc.totalWeight(this.recipe);
+    }
+
+    get totalHops() {
+        return this.calc.totalHops(this.recipe);
     }
 
     private rnd(max) {

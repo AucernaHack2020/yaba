@@ -54,5 +54,10 @@ export class Recipe {
   boilDuration = 90;
   grains: GrainIngredient[] = [];
   hops: HopIngredient[] = [];
-  yeast: YeastIngredient;
+  yeast: YeastIngredient = {
+      _id: '',
+      name: 'Generic',
+      aa: 70,
+      weight: 0
+  };
 }
