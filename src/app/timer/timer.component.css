@@ -14,8 +14,22 @@
     display: block;
 }
 
-button {
+button.single {
     width: 280px;
     border-top-right-radius: 0 !important;
     border-top-left-radius: 0 !important;
+}
+
+button.split-left {
+    width: 140px;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+button.split-right {
+    width: 140px;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }

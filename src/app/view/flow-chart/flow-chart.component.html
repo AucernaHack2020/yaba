@@ -1,4 +1,4 @@
-<mat-vertical-stepper>
+<mat-vertical-stepper #stepper>
     <mat-step [editable]="true" label="Milling">
         <div fxLayout="row" fxLayoutGap="1em">
             <img fxFlex src="assets/images/step1.gif"/>
@@ -13,7 +13,7 @@
     <mat-step [editable]="false" label="Mashing">
         <div fxLayout="row" fxLayoutGap="1em">
             <img fxFlex src="assets/images/step2.gif"/>
-            <yaba-timer fxFlex [duration]="recipe.mashDuration"></yaba-timer>
+            <yaba-timer fxFlex (finish)="finishMash()" [duration]="recipe.mashDuration"></yaba-timer>
             <mat-list fxFlex>
                 <mat-list-item>
                     <mat-icon mat-list-icon>send</mat-icon>

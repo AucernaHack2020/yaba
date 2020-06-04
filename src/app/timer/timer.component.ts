@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
     selector: 'yaba-timer',
     templateUrl: './timer.component.html',
     styleUrls: ['./timer.component.css']
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit, OnChanges {
 
     @Input() duration: number;
     @Output() finish = new EventEmitter();
@@ -19,6 +19,13 @@ export class TimerComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
+        console.log('ngOnInit', this.duration);
+        this.totalSecs = this.duration * 60;
+        this.update();
+    }
+
+    ngOnChanges() {
+        console.log('ngOnChanges', this.duration);
         this.totalSecs = this.duration * 60;
         this.update();
     }
@@ -35,6 +42,10 @@ export class TimerComponent implements OnInit {
             }
             this.update();
         }, 100);
+    }
+
+    skip() {
+        this.startedAt -= 10 * 1000;
     }
 
     update() {

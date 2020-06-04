@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>
-            Mash
+            Mash and Lautering
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -9,7 +9,7 @@
         <mat-slider [(ngModel)]="mashTemp" (ngModelChange)="mashTempChange.emit($event)" thumbLabel min="30" max="100"></mat-slider>
         {{mashTemp}} °C
         <h3>Mash Duration (Minutes)</h3>
-        <mat-slider [(ngModel)]="mashDuration" (ngModelChange)="mashDurationChange.emit($event)" thumbLabel min="30" max="120"></mat-slider>
+        <mat-slider [(ngModel)]="mashDuration" (ngModelChange)="mashDurationChange.emit($event)" thumbLabel min="1" max="120"></mat-slider>
         {{mashDuration}} min
         <h3>Lauter temperature (°C)</h3>
         <mat-slider [(ngModel)]="lauterTemp" (ngModelChange)="lauterTempChange.emit($event)" thumbLabel min="30" max="100"></mat-slider>

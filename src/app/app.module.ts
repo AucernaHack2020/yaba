@@ -30,8 +30,8 @@ import { FormsModule } from '@angular/forms';
 import { BoilComponent } from './view/boil/boil.component';
 import { FermentationComponent } from './view/fermentation/fermentation.component';
 import {
-  GrainPickerComponent,
-  GrainPicker,
+    GrainPickerComponent,
+    GrainPicker,
 } from './view/grain-picker/grain-picker.component';
 import { MatListModule } from '@angular/material/list';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -41,54 +41,57 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TimerComponent } from './timer/timer.component';
 import { HopPickerComponent } from './view/hop-picker/hop-picker.component';
 import { YeastPickerComponent } from './view/yeast-picker/yeast-picker.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    StyleSelectorComponent,
-    StyleSelectorItemComponent,
-    LoginComponent,
-    BeerSelectionComponent,
-    IngredientsSelectionComponent,
-    FlowChartComponent,
-    IngredientElementComponent,
-    MashComponent,
-    PlaygroundComponent,
-    BoilComponent,
-    FermentationComponent,
-    GrainPickerComponent,
-    TimerComponent,
-    HopPickerComponent,
-    YeastPickerComponent,
-  ],
-  imports: [
-    BrowserModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-    }),
-    BrowserAnimationsModule,
-    FormsModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatStepperModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatCardModule,
-    MatTableModule,
-    MatDividerModule,
-    MatSliderModule,
-    MatListModule,
-    MatBottomSheetModule,
-    MatDialogModule,
-    MatProgressSpinnerModule,
-    FlexLayoutModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [GrainPicker],
+    declarations: [
+        AppComponent,
+        StyleSelectorComponent,
+        StyleSelectorItemComponent,
+        LoginComponent,
+        BeerSelectionComponent,
+        IngredientsSelectionComponent,
+        FlowChartComponent,
+        IngredientElementComponent,
+        MashComponent,
+        PlaygroundComponent,
+        BoilComponent,
+        FermentationComponent,
+        GrainPickerComponent,
+        TimerComponent,
+        HopPickerComponent,
+        YeastPickerComponent,
+    ],
+    imports: [
+        BrowserModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+        }),
+        BrowserAnimationsModule,
+        FormsModule,
+        MatGridListModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatStepperModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatCardModule,
+        MatTableModule,
+        MatDividerModule,
+        MatSliderModule,
+        MatListModule,
+        MatBottomSheetModule,
+        MatDialogModule,
+        MatProgressSpinnerModule,
+        FlexLayoutModule,
+        MatSnackBarModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    entryComponents: [GrainPicker],
 })
-export class AppModule {}
+export class AppModule { }

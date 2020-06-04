@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Recipe } from 'src/app/model';
 import { CalcService } from 'src/app/services/calc.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
     selector: 'yaba-flow-chart',
@@ -10,9 +12,11 @@ import { CalcService } from 'src/app/services/calc.service';
 export class FlowChartComponent implements OnInit {
 
     @Input() recipe: Recipe;
+    @ViewChild('stepper') stepper: MatStepper;
 
     constructor(
-        private calc: CalcService
+        private calc: CalcService,
+        private snackBar: MatSnackBar
     ) { }
 
     ngOnInit(): void {
@@ -27,4 +31,7 @@ export class FlowChartComponent implements OnInit {
         return this.calc.totalWeight(this.recipe);
     }
 
+    finishMash() {
+        this.snackBar.open('Mash has been finished!', 'Next step?').onAction().subscribe(() => this.stepper.next());
+    }
 }
