@@ -1,73 +1,82 @@
 <mat-vertical-stepper #stepper>
-    <mat-step [editable]="true" label="Milling">
-        <div fxLayout="row" fxLayoutGap="1em">
-            <img fxFlex src="assets/images/step1.gif"/>
-            <mat-list fxFlex>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>send</mat-icon>
-                    Amount of grains to mill: {{totalWeight}} kg
-                </mat-list-item>
-            </mat-list>
-        </div>
-    </mat-step>
-    <mat-step [editable]="false" label="Mashing">
-        <div fxLayout="row" fxLayoutGap="1em">
-            <img fxFlex src="assets/images/step2.gif"/>
-            <yaba-timer fxFlex (finish)="finishMash()" [duration]="recipe.mashDuration"></yaba-timer>
-            <mat-list fxFlex>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>send</mat-icon>
-                    Set temprature to: {{ recipe.mashTemp }} °C
-                </mat-list-item>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>send</mat-icon>
-                    Target OG: {{ og }}
-                </mat-list-item>
-            </mat-list>
-        </div>
-    </mat-step>
-    <mat-step [editable]="false" label="Lautering">
-        <div fxLayout="row" fxLayoutGap="1em">
-            <img fxFlex src="assets/images/step3.gif"/>
-            <yaba-timer fxFlex [duration]="recipe.lauterDuration"></yaba-timer>
-            <mat-list fxFlex>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>send</mat-icon>
-                    Set temprature to: {{ recipe.lauterTemp }} °C
-                </mat-list-item>
-            </mat-list>
-        </div>
-    </mat-step>
-    <mat-step [editable]="false" label="Boiling">
-        <div fxLayout="row" fxLayoutGap="1em">
-            <img fxFlex src="assets/images/step4.gif"/>
-            <yaba-timer fxFlex [duration]="recipe.boilDuration"></yaba-timer>
-            <mat-list fxFlex>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>send</mat-icon>
-                    Evaporation rate: 10% / hour
-                </mat-list-item>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>send</mat-icon>
-                    Target OG: {{ og }}
-                </mat-list-item>
-            </mat-list>
-        </div>
-    </mat-step>
-    <mat-step [editable]="false" label="Cooling">
-        <div fxLayout="row" fxLayoutGap="1em">
-            <img fxFlex src="assets/images/step5.gif"/>
-            <yaba-timer fxFlex [duration]="30"></yaba-timer>
-        </div>
-        
-    </mat-step>
-    <mat-step [editable]="false" label="Fermentation">
-        <img src="assets/images/step6.gif"/>
-    </mat-step>
-    <mat-step [editable]="false" label="Maturation">
-        <img src="assets/images/step7.gif"/>
-    </mat-step>
-    <mat-step [editable]="false" label="Filtration, carbonation, and cellaring">
-        <img src="assets/images/step8.gif"/>
-    </mat-step>
+  <mat-step [editable]="true" label="Milling">
+    <div fxLayout="row" fxLayoutGap="1em">
+      <img fxFlex src="assets/images/step1.gif" />
+      <mat-list fxFlex>
+        <mat-list-item>
+          <mat-icon mat-list-icon>send</mat-icon>
+          Amount of grains to mill: {{ totalWeight }} kg
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-step>
+  <mat-step [editable]="false" label="Mashing">
+    <div fxLayout="row" fxLayoutGap="1em">
+      <img fxFlex src="assets/images/step2.gif" />
+      <yaba-timer
+        fxFlex
+        (finish)="finishMash()"
+        [duration]="recipe.mashDuration"
+      ></yaba-timer>
+      <mat-list fxFlex>
+        <mat-list-item>
+          <mat-icon mat-list-icon>send</mat-icon>
+          Set temprature to: {{ recipe.mashTemp }} °C
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>send</mat-icon>
+          Target OG: {{ og }}
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-step>
+  <mat-step [editable]="false" label="Lautering">
+    <div fxLayout="row" fxLayoutGap="1em">
+      <img fxFlex src="assets/images/step3.gif" />
+      <yaba-timer fxFlex [duration]="recipe.lauterDuration"></yaba-timer>
+      <mat-list fxFlex>
+        <mat-list-item>
+          <mat-icon mat-list-icon>send</mat-icon>
+          Set temprature to: {{ recipe.lauterTemp }} °C
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-step>
+  <mat-step [editable]="false" label="Boiling">
+    <div fxLayout="row" fxLayoutGap="1em">
+      <img fxFlex src="assets/images/step4.gif" />
+      <yaba-timer fxFlex [duration]="recipe.boilDuration"></yaba-timer>
+      <mat-list fxFlex>
+        <mat-list-item>
+          <mat-icon mat-list-icon>send</mat-icon>
+          Evaporation rate: 10% / hour
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>send</mat-icon>
+          Target OG: {{ og }}
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-step>
+  <mat-step [editable]="false" label="Cooling">
+    <div fxLayout="row" fxLayoutGap="1em">
+      <img fxFlex src="assets/images/step5.gif" />
+      <yaba-timer fxFlex [duration]="30"></yaba-timer>
+    </div>
+  </mat-step>
+  <mat-step [editable]="false" label="Fermentation">
+    <img src="assets/images/step6.gif" />
+  </mat-step>
+  <mat-step [editable]="false" label="Maturation">
+    <img src="assets/images/step7.gif" />
+  </mat-step>
+  <mat-step [editable]="false" label="Filtration, carbonation, and cellaring">
+    <img src="assets/images/step8.gif" />
+    <div align="left">
+      <button mat-flat-button color="primary">
+        <mat-icon mat-list-icon>local_bar</mat-icon>
+        Invite Friends
+      </button>
+    </div>
+  </mat-step>
 </mat-vertical-stepper>
