@@ -1,247 +1,262 @@
 <mat-horizontal-stepper #stepper>
-  <mat-step label="Pick a Beer Style">
-    <h2>Periodic Table of Beer Styles</h2>
-    <yaba-style-selector
-      (chooseStyle)="chooseStyle($event)"
-    ></yaba-style-selector>
-  </mat-step>
-  <mat-step label="Select your batch size and calculate the ingredients">
-    <h2 class="mat-h2"></h2>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>General Information</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
-                <mat-form-field fxFlex appearance="outline">
-                    <mat-label>Style Name</mat-label>
-                    <input matInput readonly [value]="recipe.style?.name" />
-                </mat-form-field>
-                <mat-form-field fxFlex appearance="outline">
-                    <mat-label>Recipe name</mat-label>
-                    <input [(ngModel)]="recipe.name" matInput />
-                </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
-                <mat-form-field fxFlex appearance="outline">
-                    <mat-label>Batch Size (liters)</mat-label>
-                    <input type="number" matInput [(ngModel)]="recipe.size" />
-                </mat-form-field>
-                <mat-form-field fxFlex appearance="outline">
-                    <mat-label>Original Gravity (OG)</mat-label>
-                    <input type="number" readonly matInput [value]="og" />
-                </mat-form-field>
-                <mat-form-field fxFlex appearance="outline">
-                    <mat-label>Final Gravity (FG)</mat-label>
-                    <input type="number" readonly matInput [value]="fg" />
-                </mat-form-field>
-                <mat-form-field fxFlex appearance="outline">
-                    <mat-label>ABV (How much will it make me drunk?)</mat-label>
-                    <input type="number" readonly matInput [value]="abv" />
-                </mat-form-field>
-                <mat-form-field fxFlex appearance="outline">
-                    <mat-label>Bitterness (IBUs)</mat-label>
-                    <input type="number" matInput [value]="ibu | number:'0.0-0'" />
-                </mat-form-field>
-            </div>
-        </mat-card-content>
-    </mat-card>
+    <mat-step label="Pick a Beer">
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Periodic Table of Beer Styles
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <yaba-style-selector (chooseStyle)="chooseStyle($event)"></yaba-style-selector>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        My Recipes
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-selection-list (selectionChange)="selectRecipe($event.option.value)" [multiple]="false">
+                    <mat-list-option [value]="recipe" *ngFor="let recipe of recipes">
+                        <div mat-line>{{ recipe.name }}</div>
+                        <div mat-line>{{ recipe.style.name }}</div>
+                    </mat-list-option>
+                </mat-selection-list>
+            </mat-expansion-panel>
+        </mat-accordion>
         
-    <mat-divider></mat-divider>
-    <h3 class="mat-h3">Grain</h3>
-    <mat-table [dataSource]="recipe.grains" class="mat-elevation-z8">
-      <!-- Grain Name -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Grain </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
-      </ng-container>
+    </mat-step>
+    <mat-step label="Select your batch size and calculate the ingredients">
+        <h2 class="mat-h2"></h2>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>General Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Style Name</mat-label>
+                        <input matInput readonly [value]="recipe.style?.name" />
+                    </mat-form-field>
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Recipe name</mat-label>
+                        <input [(ngModel)]="recipe.name" matInput />
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Batch Size (liters)</mat-label>
+                        <input type="number" matInput [(ngModel)]="recipe.size" />
+                    </mat-form-field>
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Original Gravity (OG)</mat-label>
+                        <input type="number" readonly matInput [value]="og" />
+                    </mat-form-field>
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Final Gravity (FG)</mat-label>
+                        <input type="number" readonly matInput [value]="fg" />
+                    </mat-form-field>
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>ABV (How much will it make me drunk?)</mat-label>
+                        <input type="number" readonly matInput [value]="abv" />
+                    </mat-form-field>
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Bitterness (IBUs)</mat-label>
+                        <input type="number" matInput [value]="ibu | number:'0.0-0'" />
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>
 
-      <!-- Potential -->
-      <ng-container matColumnDef="potential">
-        <mat-header-cell *matHeaderCellDef> Potential </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          {{ element.potential.$numberDouble || element.potential.$numberInt }}
-        </mat-cell>
-      </ng-container>
+        <mat-divider></mat-divider>
+        <h3 class="mat-h3">Grain</h3>
+        <mat-table [dataSource]="recipe.grains" class="mat-elevation-z8">
+            <!-- Grain Name -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Grain </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+            </ng-container>
 
-      <!-- Color Column -->
-      <ng-container matColumnDef="colour">
-        <mat-header-cell *matHeaderCellDef> Colour </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          {{ element.colour.$numberDouble || element.colour.$numberInt }}
-        </mat-cell>
-      </ng-container>
+            <!-- Potential -->
+            <ng-container matColumnDef="potential">
+                <mat-header-cell *matHeaderCellDef> Potential </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{ element.potential.$numberDouble || element.potential.$numberInt }}
+                </mat-cell>
+            </ng-container>
 
-      <!-- Percent Column -->
-      <ng-container matColumnDef="percent">
-        <mat-header-cell *matHeaderCellDef> % </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            {{ element.weight / totalWeight | percent:'0.0-0' }}
-        </mat-cell>
-      </ng-container>
+            <!-- Color Column -->
+            <ng-container matColumnDef="colour">
+                <mat-header-cell *matHeaderCellDef> Colour </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{ element.colour.$numberDouble || element.colour.$numberInt }}
+                </mat-cell>
+            </ng-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <mat-header-cell *matHeaderCellDef> Kg </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-form-field appearance="outline">
-            <input type="number" matInput [(ngModel)]="element.weight" />
-          </mat-form-field>
-        </mat-cell>
-        <mat-footer-cell *matFooterCellDef>
-            Total weight: {{totalWeight}} Kg
-        </mat-footer-cell>
-      </ng-container>
+            <!-- Percent Column -->
+            <ng-container matColumnDef="percent">
+                <mat-header-cell *matHeaderCellDef> % </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{ element.weight / totalWeight | percent:'0.0-0' }}
+                </mat-cell>
+            </ng-container>
 
-      <!-- Use Column -->
-      <ng-container matColumnDef="use">
-        <mat-header-cell *matHeaderCellDef> Use </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.use }} </mat-cell>
-      </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+                <mat-header-cell *matHeaderCellDef> Kg </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <mat-form-field appearance="outline">
+                        <input type="number" matInput [(ngModel)]="element.weight" />
+                    </mat-form-field>
+                </mat-cell>
+                <mat-footer-cell *matFooterCellDef>
+                    Total weight: {{totalWeight}} Kg
+                </mat-footer-cell>
+            </ng-container>
 
-      <!-- Delete Column -->
-      <ng-container matColumnDef="delete">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element; let j = index">
-          <mat-icon (click)="deleteGrain(j)">delete</mat-icon>
-        </mat-cell>
-      </ng-container>
+            <!-- Use Column -->
+            <ng-container matColumnDef="use">
+                <mat-header-cell *matHeaderCellDef> Use </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.use }} </mat-cell>
+            </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedGrainColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedGrainColumns"></mat-row>
-      <mat-footer-row *matFooterRowDef="['weight']"></mat-footer-row>
-    </mat-table>
-    <p></p>
-    <div align="right">
-      <button mat-flat-button color="primary" (click)="addGrain()">
-        Add Grains
-      </button>
-    </div>
-    <p></p>
-    <mat-divider></mat-divider>
-    <h3 class="mat-h3">Hop</h3>
-    <mat-table [dataSource]="recipe.hops" class="mat-elevation-z8">
-      <!-- Hop Name -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Hop </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
-      </ng-container>
+            <!-- Delete Column -->
+            <ng-container matColumnDef="delete">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let element; let j = index">
+                    <mat-icon (click)="deleteGrain(j)">delete</mat-icon>
+                </mat-cell>
+            </ng-container>
 
-      <!-- Alpha -->
-      <ng-container matColumnDef="alpha">
-        <mat-header-cell *matHeaderCellDef> Alpha </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          {{ element.alpha.$numberDouble || element.alpha.$numberInt }}
-        </mat-cell>
-      </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedGrainColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedGrainColumns"></mat-row>
+            <mat-footer-row *matFooterRowDef="['weight']"></mat-footer-row>
+        </mat-table>
+        <p></p>
+        <div align="right">
+            <button mat-flat-button color="primary" (click)="addGrain()">
+                Add Grains
+            </button>
+        </div>
+        <p></p>
+        <mat-divider></mat-divider>
+        <h3 class="mat-h3">Hop</h3>
+        <mat-table [dataSource]="recipe.hops" class="mat-elevation-z8">
+            <!-- Hop Name -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Hop </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+            </ng-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-form-field appearance="outline">
-            <input type="number" matInput [(ngModel)]="element.weight" />
-          </mat-form-field>
-        </mat-cell>
-        <mat-footer-cell *matFooterCellDef>
-            Total weight: {{totalHops}} Grs ({{totalHops / recipe.size | number:'0.0-1' }} grs/l)
-        </mat-footer-cell>
-      </ng-container>
+            <!-- Alpha -->
+            <ng-container matColumnDef="alpha">
+                <mat-header-cell *matHeaderCellDef> Alpha </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{ element.alpha.$numberDouble || element.alpha.$numberInt }}
+                </mat-cell>
+            </ng-container>
 
-      <!-- Volume Column -->
-      <ng-container matColumnDef="volume">
-        <mat-header-cell *matHeaderCellDef> G/L </mat-header-cell>
-        <mat-cell *matCellDef="let element"> 
-            {{ element.weight / recipe.size | number:'0.0-1' }} grs/l
-        </mat-cell>
-      </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+                <mat-header-cell *matHeaderCellDef> Grs </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <mat-form-field appearance="outline">
+                        <input type="number" matInput [(ngModel)]="element.weight" />
+                    </mat-form-field>
+                </mat-cell>
+                <mat-footer-cell *matFooterCellDef>
+                    Total weight: {{totalHops}} Grs ({{totalHops / recipe.size | number:'0.0-1' }} grs/l)
+                </mat-footer-cell>
+            </ng-container>
 
-      <!-- Time Column -->
-      <ng-container matColumnDef="time">
-        <mat-header-cell *matHeaderCellDef> Minutes </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-form-field appearance="outline">
-            <input type="number" matInput [(ngModel)]="element.time" />
-          </mat-form-field>
-        </mat-cell>
-      </ng-container>
+            <!-- Volume Column -->
+            <ng-container matColumnDef="volume">
+                <mat-header-cell *matHeaderCellDef> G/L </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{ element.weight / recipe.size | number:'0.0-1' }} grs/l
+                </mat-cell>
+            </ng-container>
 
-      <!-- IBU Column -->
-      <ng-container matColumnDef="ibu">
-        <mat-header-cell *matHeaderCellDef> IBU </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.ibu }} </mat-cell>
-      </ng-container>
+            <!-- Time Column -->
+            <ng-container matColumnDef="time">
+                <mat-header-cell *matHeaderCellDef> Minutes </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <mat-form-field appearance="outline">
+                        <input type="number" matInput [(ngModel)]="element.time" />
+                    </mat-form-field>
+                </mat-cell>
+            </ng-container>
 
-      <!-- Delete Column -->
-      <ng-container matColumnDef="delete">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element; let j = index">
-          <mat-icon (click)="deleteHop(j)">delete</mat-icon>
-        </mat-cell>
-      </ng-container>
+            <!-- IBU Column -->
+            <ng-container matColumnDef="ibu">
+                <mat-header-cell *matHeaderCellDef> IBU </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.ibu }} </mat-cell>
+            </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedHopColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedHopColumns"></mat-row>
-      <mat-footer-row *matFooterRowDef="['weight']"></mat-footer-row>
-    </mat-table>
-    <p></p>
-    <div align="right">
-      <button mat-flat-button color="primary" (click)="addHop()">
-        Add Hops
-      </button>
-    </div>
-    <p></p>
-    <mat-divider></mat-divider>
-    <p></p>
-    <mat-divider></mat-divider>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Yeast</mat-card-title>
-        </mat-card-header>
-        <mat-card-content fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
-            <mat-form-field fxFlex appearance="outline">
-                <mat-label>Name</mat-label>
-                <input type="text" readonly matInput [value]="recipe.yeast.name" />
-            </mat-form-field>
-            <mat-form-field fxFlex appearance="outline">
-                <mat-label>Attenuation (%)</mat-label>
-                <input type="text" readonly matInput [value]="recipe.yeast.aa" />
-            </mat-form-field>
-            <mat-form-field fxFlex appearance="outline">
-                <mat-label>Weight (g)</mat-label>
-                <input type="number" matInput [(ngModel)]="recipe.yeast.weight" />
-            </mat-form-field>
-        </mat-card-content>
-    </mat-card>
-    <p></p>
-    <div align="right">
-      <button mat-flat-button color="primary" (click)="addYeast()">
-        Add Yeast
-      </button>
-    </div>
-    <p></p>
-    <mat-divider></mat-divider>
-    <p></p>
-    <div fxLayout="row" fxLayoutGap="1em">
-      <yaba-mash
-        fxFlex
-        [(mashTemp)]="recipe.mashTemp"
-        [(mashDuration)]="recipe.mashDuration"
-        [(lauterTemp)]="recipe.lauterTemp"
-        [(lauterDuration)]="recipe.lauterDuration"
-      ></yaba-mash>
-      <yaba-boil fxFlex [(duration)]="recipe.boilDuration"></yaba-boil>
-    </div>
+            <!-- Delete Column -->
+            <ng-container matColumnDef="delete">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let element; let j = index">
+                    <mat-icon (click)="deleteHop(j)">delete</mat-icon>
+                </mat-cell>
+            </ng-container>
 
-    <div align="end">
-      <button mat-flat-button (click)="saveAndBrew()" color="primary">
-        Save and Brew
-        <mat-icon>double_arrow</mat-icon>
-      </button>
-    </div>
-  </mat-step>
-  <mat-step label="Brewing process">
-    <yaba-flow-chart [recipe]="recipe"></yaba-flow-chart>
-  </mat-step>
+            <mat-header-row *matHeaderRowDef="displayedHopColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedHopColumns"></mat-row>
+            <mat-footer-row *matFooterRowDef="['weight']"></mat-footer-row>
+        </mat-table>
+        <p></p>
+        <div align="right">
+            <button mat-flat-button color="primary" (click)="addHop()">
+                Add Hops
+            </button>
+        </div>
+        <p></p>
+        <mat-divider></mat-divider>
+        <p></p>
+        <mat-divider></mat-divider>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Yeast</mat-card-title>
+            </mat-card-header>
+            <mat-card-content fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input type="text" readonly matInput [value]="recipe.yeast.name" />
+                </mat-form-field>
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Attenuation (%)</mat-label>
+                    <input type="text" readonly matInput [value]="recipe.yeast.aa" />
+                </mat-form-field>
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Weight (g)</mat-label>
+                    <input type="number" matInput [(ngModel)]="recipe.yeast.weight" />
+                </mat-form-field>
+            </mat-card-content>
+        </mat-card>
+        <p></p>
+        <div align="right">
+            <button mat-flat-button color="primary" (click)="addYeast()">
+                Add Yeast
+            </button>
+        </div>
+        <p></p>
+        <mat-divider></mat-divider>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="1em">
+            <yaba-mash fxFlex [(mashTemp)]="recipe.mashTemp" [(mashDuration)]="recipe.mashDuration"
+                [(lauterTemp)]="recipe.lauterTemp" [(lauterDuration)]="recipe.lauterDuration"></yaba-mash>
+            <yaba-boil fxFlex [(duration)]="recipe.boilDuration"></yaba-boil>
+        </div>
+
+        <div align="end">
+            <button mat-flat-button *ngIf="!recipe._id" (click)="saveAndBrew()" color="primary">
+                Save and Brew
+                <mat-icon>double_arrow</mat-icon>
+            </button>
+        </div>
+    </mat-step>
+    <mat-step label="Brewing process">
+        <yaba-flow-chart [recipe]="recipe"></yaba-flow-chart>
+    </mat-step>
 </mat-horizontal-stepper>
 <!-- <pre>{{recipe | json}}</pre> -->

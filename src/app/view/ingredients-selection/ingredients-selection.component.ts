@@ -26,7 +26,7 @@ const yeastData: YeastIngredient[] = [];
 export class IngredientsSelectionComponent implements OnInit {
     @ViewChild('stepper') stepper: MatStepper;
     recipe: Recipe = new Recipe();
-    style: Style;
+    recipes: Recipe[];
 
     constructor(
         private snackBar: MatSnackBar,
@@ -59,7 +59,9 @@ export class IngredientsSelectionComponent implements OnInit {
 
     displayedYeastColumns: string[] = ['name', 'aa', 'weight'];
 
-    ngOnInit(): void { }
+    async ngOnInit() {
+        this.recipes = await this.data.recipes().toPromise();
+    }
 
     addGrain() {
         this.grainPicker
@@ -117,7 +119,6 @@ export class IngredientsSelectionComponent implements OnInit {
     }
 
     chooseStyle(style: Style) {
-        this.style = style;
         this.recipe.style = style;
         this.stepper.next();
         this.data.recipes().subscribe((recipes) => {
@@ -140,10 +141,28 @@ export class IngredientsSelectionComponent implements OnInit {
                 this.recipe.yeast.weight = this.calc.fix(this.recipe.yeast.weight || 0);
                 this.recipe.yeast.aa = this.calc.fix(this.recipe.yeast.aa || 0);
             } else {
-                this.recipe.name = `My own ${style.name}`;
+                this.recipe.name = `My ${style.name}`;
                 this.recipe.size = 20; //  default batch size
             }
         });
+    }
+
+    selectRecipe(recipe: Recipe) {
+        this.recipe = recipe;
+        this.recipe.size = this.calc.fix(this.recipe.size);
+        this.recipe.mashDuration = this.calc.fix(this.recipe.mashDuration);
+        this.recipe.mashTemp = this.calc.fix(this.recipe.mashTemp);
+        this.recipe.lauterDuration = this.calc.fix(this.recipe.lauterDuration);
+        this.recipe.lauterTemp = this.calc.fix(this.recipe.lauterTemp);
+        this.recipe.boilDuration = this.calc.fix(this.recipe.boilDuration);
+        this.recipe.grains.forEach(g => g.weight = this.calc.fix(g.weight));
+        this.recipe.hops.forEach(h => {
+            h.weight = this.calc.fix(h.weight);
+            h.time = this.calc.fix(h.time);
+        });
+        this.recipe.yeast.weight = this.calc.fix(this.recipe.yeast.weight || 0);
+        this.recipe.yeast.aa = this.calc.fix(this.recipe.yeast.aa || 0);
+        this.stepper.next();
     }
 
     get og() {
