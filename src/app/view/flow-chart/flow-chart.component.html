@@ -45,7 +45,7 @@
   <mat-step [editable]="false" label="Boiling">
     <div fxLayout="row" fxLayoutGap="1em">
       <img fxFlex src="assets/images/step4.gif" />
-      <yaba-timer fxFlex (finish)="finishLautering()" [duration]="recipe.boilDuration"></yaba-timer>
+      <yaba-timer fxFlex (finish)="finishBoil()" [duration]="recipe.boilDuration"></yaba-timer>
       <mat-list fxFlex>
         <mat-list-item>
           <mat-icon mat-list-icon>send</mat-icon>
