@@ -19,13 +19,11 @@ export class TimerComponent implements OnInit, OnChanges {
     constructor() { }
 
     ngOnInit(): void {
-        console.log('ngOnInit', this.duration);
-        this.totalSecs = this.duration * 60;
-        this.update();
+        // this.totalSecs = this.duration * 60;
+        // this.update();
     }
 
     ngOnChanges() {
-        console.log('ngOnChanges', this.duration);
         this.totalSecs = this.duration * 60;
         this.update();
     }
@@ -33,7 +31,6 @@ export class TimerComponent implements OnInit, OnChanges {
     start() {
         this.startedAt = new Date().getTime();
         this.interval = setInterval(() => {
-            console.log((new Date().getTime() - this.startedAt) / 1000);
             this.totalSecs = this.duration * 60 - (new Date().getTime() - this.startedAt) / 1000;
             if (this.totalSecs < 0) {
                 clearInterval(this.interval);
