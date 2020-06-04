@@ -88,7 +88,9 @@ export class IngredientsSelectionComponent implements OnInit {
             .afterClosed()
             .subscribe((yeasts) => {
                 if (yeasts.length > 0) {
-                    this.recipe.yeast = yeasts[0];
+                    // yeasts[0].aa = this.calc.fix(yeasts[0].aa);
+                    this.recipe.yeast.name = yeasts[0].name;
+                    this.recipe.yeast.aa = this.calc.fix(yeasts[0].aa);
                 }
             });
     }
@@ -135,7 +137,8 @@ export class IngredientsSelectionComponent implements OnInit {
                     h.weight = this.calc.fix(h.weight);
                     h.time = this.calc.fix(h.time);
                 });
-                this.recipe.yeast.weight = this.calc.fix(this.recipe.yeast.weight);
+                this.recipe.yeast.weight = this.calc.fix(this.recipe.yeast.weight || 0);
+                this.recipe.yeast.aa = this.calc.fix(this.recipe.yeast.aa || 0);
             } else {
                 this.recipe.name = `My own ${style.name}`;
                 this.recipe.size = 20; //  default batch size

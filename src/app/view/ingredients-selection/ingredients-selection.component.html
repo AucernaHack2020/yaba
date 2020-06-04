@@ -201,11 +201,11 @@
         <mat-card-content fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
             <mat-form-field fxFlex appearance="outline">
                 <mat-label>Name</mat-label>
-                <input type="number" matInput [value]="recipe.yeast.name" />
+                <input type="text" readonly matInput [value]="recipe.yeast.name" />
             </mat-form-field>
             <mat-form-field fxFlex appearance="outline">
                 <mat-label>Attenuation (%)</mat-label>
-                <input type="number" matInput [value]="recipe.yeast.aa" />
+                <input type="text" readonly matInput [value]="recipe.yeast.aa" />
             </mat-form-field>
             <mat-form-field fxFlex appearance="outline">
                 <mat-label>Weight (g)</mat-label>
@@ -244,3 +244,4 @@
     <yaba-flow-chart [recipe]="recipe"></yaba-flow-chart>
   </mat-step>
 </mat-horizontal-stepper>
+<!-- <pre>{{recipe | json}}</pre> -->
