@@ -16,4 +16,15 @@ export class StyleSelectorItemComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    get abv() {
+        return this.calc.fix(this.style.ABV_Max);
+    }
+
+    get ibu() {
+        return this.calc.fix(this.style.IBU_Max);
+    }
+
+    get srm() {
+        return this.calc.fix(this.style.Colour_Max);
+    }
 }

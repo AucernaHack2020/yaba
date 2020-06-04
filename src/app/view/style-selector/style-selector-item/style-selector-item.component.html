@@ -1,3 +1,7 @@
 <div class="main" *ngIf="style" [style.border-color]="style.colour" [style.background]="style.colour + '88'">
-    <div class="name">{{style?.name}}</div>
+    <div [style.border-color]="style.colour" class="code">{{ style._id }}</div>
+    <div [style.border-color]="style.colour" class="srm">{{ srm }} srm</div>
+    <div class="name">{{ style.name }}</div>
+    <div [style.border-color]="style.colour" class="abv">{{ abv }}%</div>
+    <div [style.border-color]="style.colour" class="ibu">{{ ibu }}IBU</div>
 </div>

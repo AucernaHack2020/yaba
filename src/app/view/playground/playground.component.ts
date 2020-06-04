@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GrainPicker } from '../grain-picker/grain-picker.component';
-import { GrainIngredient } from 'src/app/model';
+import { GrainIngredient, Style } from 'src/app/model';
 
 @Component({
     selector: 'yaba-playground',
@@ -9,7 +9,15 @@ import { GrainIngredient } from 'src/app/model';
 })
 export class PlaygroundComponent implements OnInit {
 
-    finished = false;
+    style: Style = {
+        _id: '1a',
+        category: {
+            _id: '1',
+            name: 'IPA'
+        },
+        colour: '#AAAAAA',
+        name: 'American IPA'
+    };
 
     constructor(
         private grainPicker: GrainPicker

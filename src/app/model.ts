@@ -7,7 +7,11 @@ export interface Style {
   name: string;
   // srm: number;
   category: Category;
-  colour: string;
+  colour?: string;
+  OG_Max?: any;
+  IBU_Max?: any;
+  Colour_Max?: any;
+  ABV_Max?: any;
 }
 
 export interface GrainIngredient {
