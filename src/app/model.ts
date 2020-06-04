@@ -45,8 +45,8 @@ export class Recipe {
   // tslint:disable-next-line: variable-name
   _id: any;
   name: string;
-  styleId: string;
-  // StyleId: string;
+  style: Style;
+  size: number;
   mashTemp = 66;
   mashDuration = 90;
   lauterTemp = 80;

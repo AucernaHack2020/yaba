@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Style, Category, GrainIngredient, HopIngredient, YeastIngredient, Recipe } from '../model';
 import { Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
+import { shareReplay, map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -28,7 +28,11 @@ export class DataService {
 
     grains() {
         if (!this.cachedGrains) {
-            this.cachedGrains = this.http.get<GrainIngredient[]>(`${this.base}/grains/incoming_webhook/grains_get`).pipe(shareReplay());
+            this.cachedGrains = this.http.get<GrainIngredient[]>(`${this.base}/grains/incoming_webhook/grains_get`)
+                .pipe(
+                    // map(grains => grains.sort((g1, g2) => g1.name.localeCompare(g1.name))),
+                    shareReplay()
+                );
         }
         return this.cachedGrains;
     }

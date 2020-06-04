@@ -7,22 +7,26 @@
   </mat-step>
   <mat-step label="Select your batch size and calculate the ingredients">
     <h2 class="mat-h2"></h2>
-    <h1>{{ styleName }}</h1>
-    <table cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field appearance="outline">
-            <mat-label>Batch Size (liters)</mat-label>
-            <input matInput />
-          </mat-form-field>
-        </td>
-        <td>
-          <button mat-flat-button color="primary">
-            Calculate
-          </button>
-        </td>
-      </tr>
-    </table>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>General Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Style Name</mat-label>
+                <input matInput [value]="recipe.style?.name" />
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Batch Size (liters)</mat-label>
+                <input type="number" matInput [(ngModel)]="recipe.size" />
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Recipe name</mat-label>
+                <input [(ngModel)]="recipe.name" matInput />
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+        
     <mat-divider></mat-divider>
     <h3 class="mat-h3">Grain</h3>
     <mat-table [dataSource]="recipe.grains" class="mat-elevation-z8">
@@ -51,7 +55,9 @@
       <!-- Percent Column -->
       <ng-container matColumnDef="percent">
         <mat-header-cell *matHeaderCellDef> % </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.percent }} </mat-cell>
+        <mat-cell *matCellDef="let element">
+            {{ element.weight / totalWeight | percent:'0.0-0' }}
+        </mat-cell>
       </ng-container>
 
       <!-- Weight Column -->
@@ -59,9 +65,10 @@
         <mat-header-cell *matHeaderCellDef> Kg </mat-header-cell>
         <mat-cell *matCellDef="let element">
           <mat-form-field appearance="outline">
-            <input matInput value="{{ element.weight }}" />
+            <input type="number" matInput [(ngModel)]="element.weight" />
           </mat-form-field>
         </mat-cell>
+        <td mat-footer-cell *matFooterCellDef> {{totalWeight}} </td>
       </ng-container>
 
       <!-- Use Column -->
@@ -80,6 +87,7 @@
 
       <mat-header-row *matHeaderRowDef="displayedGrainColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedGrainColumns"></mat-row>
+      <mat-footer-row *matFooterRowDef="['weight']"></mat-footer-row>
     </mat-table>
     <p></p>
     <div align="right">
