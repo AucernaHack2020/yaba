@@ -21,6 +21,14 @@
                 <input type="number" matInput [(ngModel)]="recipe.size" />
             </mat-form-field>
             <mat-form-field fxFlex appearance="outline">
+                <mat-label>Original Gravity (OG)</mat-label>
+                <input type="number" matInput [value]="og" />
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Batch Size (liters)</mat-label>
+                <input type="number" matInput [(ngModel)]="recipe.size" />
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
                 <mat-label>Recipe name</mat-label>
                 <input [(ngModel)]="recipe.name" matInput />
             </mat-form-field>
@@ -68,7 +76,9 @@
             <input type="number" matInput [(ngModel)]="element.weight" />
           </mat-form-field>
         </mat-cell>
-        <td mat-footer-cell *matFooterCellDef> {{totalWeight}} </td>
+        <mat-footer-cell *matFooterCellDef>
+            Total weight: {{totalWeight}} Kg
+        </mat-footer-cell>
       </ng-container>
 
       <!-- Use Column -->

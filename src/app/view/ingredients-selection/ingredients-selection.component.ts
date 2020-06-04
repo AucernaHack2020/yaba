@@ -13,6 +13,7 @@ import { GrainPicker } from '../grain-picker/grain-picker.component';
 import { HopPicker } from '../hop-picker/hop-picker.component';
 import { YeastPicker } from '../yeast-picker/yeast-picker.component';
 import { MatStepper } from '@angular/material/stepper';
+import { CalcService } from 'src/app/services/calc.service';
 
 const yeastData: YeastIngredient[] = [];
 
@@ -31,7 +32,8 @@ export class IngredientsSelectionComponent implements OnInit {
         private grainPicker: GrainPicker,
         private hopPicker: HopPicker,
         private yeastPicker: YeastPicker,
-        private data: DataService
+        private data: DataService,
+        private calc: CalcService
     ) { }
 
     displayedGrainColumns: string[] = [
@@ -132,13 +134,13 @@ export class IngredientsSelectionComponent implements OnInit {
                 this.recipe = pre[this.rnd(pre.length)];
                 this.recipe._id = undefined;
                 this.recipe.name = `Clone of (${this.recipe.name})`;
-                this.recipe.size = (this.recipe.size as any).$numberInt;
-                this.recipe.mashDuration = (this.recipe.mashDuration as any).$numberInt;
-                this.recipe.mashTemp = (this.recipe.mashTemp as any).$numberInt;
-                this.recipe.lauterDuration = (this.recipe
-                    .lauterDuration as any).$numberInt;
-                this.recipe.lauterTemp = (this.recipe.lauterTemp as any).$numberInt;
-                this.recipe.boilDuration = (this.recipe.boilDuration as any).$numberInt;
+                this.recipe.size = this.calc.fix(this.recipe.size);
+                this.recipe.mashDuration = this.calc.fix(this.recipe.mashDuration);
+                this.recipe.mashTemp = this.calc.fix(this.recipe.mashTemp);
+                this.recipe.lauterDuration = this.calc.fix(this.recipe.lauterDuration);
+                this.recipe.lauterTemp = this.calc.fix(this.recipe.lauterTemp);
+                this.recipe.boilDuration = this.calc.fix(this.recipe.boilDuration);
+                this.recipe.grains.forEach(g => g.weight = this.calc.fix(g.weight))
             } else {
                 this.recipe.name = `My own ${style.name}`;
                 this.recipe.size = 20; //  default batch size
@@ -146,11 +148,16 @@ export class IngredientsSelectionComponent implements OnInit {
         });
     }
 
+    get og() {
+        return this.calc.og(this.recipe);
+    }
+
     get totalWeight() {
-        return this.recipe.grains.map(g => g.weight || 0).reduce((p, a) => (p + a), 0);
+        return this.calc.totalWeight(this.recipe);
     }
 
     private rnd(max) {
         return Math.floor(Math.random() * max);
     }
+
 }

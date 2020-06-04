@@ -13,7 +13,7 @@ export interface Style {
 export interface GrainIngredient {
   _id: string;
   name: string;
-  extract: number;
+  potential: number;
   colour: number;
   percent: number;
   weight: number;

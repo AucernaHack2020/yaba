@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Recipe } from '../model';
 
 @Injectable({
     providedIn: 'root'
@@ -13,12 +14,55 @@ export class CalcService {
     constructor() { }
 
     srmToRGB(srm: number) {
-        if ( srm > 40 ) {
+        if (srm > 40) {
             return 'black';
-        } else if ( srm < 1 ) {
+        } else if (srm < 1) {
             return 'white';
         } else {
             return this.SRM[Math.round(srm)];
         }
+    }
+
+    toLbs(kg: number) {
+        return kg / 0.45359;
+    }
+
+    toOz(kg: number) {
+        return kg * 1000 * 0.035274;
+    }
+
+    toGal(liters: number) {
+        return liters * 0.264172052637296;
+    }
+
+    toPpg(potential: number) {
+        return potential * 1000 - 1000;
+    }
+
+    toPotential(ppg: number) {
+        return this.round((ppg + 1000) / 1000, 1000);
+    }
+
+    round(value, zeros: number) {
+        return Math.round(value * zeros) / zeros;
+    }
+
+    og(recipe: Recipe) {
+        return this.toPotential(
+            recipe.grains.map(g =>
+                this.toLbs(g.weight) *
+                this.toPpg(this.fix(g.potential)) *
+                0.7 / // default efficiency
+                this.toGal(recipe.size)
+            ).reduce((p, c) => p + c, 0)
+        );
+    }
+
+    totalWeight(recipe: Recipe) {
+        return recipe.grains.map(g => g.weight || 0).reduce((p, a) => (p + a), 0);
+    }
+
+    fix(value: any) {
+        return parseFloat(value.$numberInt || value.$numberDouble);
     }
 }

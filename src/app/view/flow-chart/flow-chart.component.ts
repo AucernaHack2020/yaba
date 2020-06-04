@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from 'src/app/model';
+import { CalcService } from 'src/app/services/calc.service';
 
 @Component({
     selector: 'yaba-flow-chart',
@@ -10,10 +11,20 @@ export class FlowChartComponent implements OnInit {
 
     @Input() recipe: Recipe;
 
-    constructor() { }
+    constructor(
+        private calc: CalcService
+    ) { }
 
     ngOnInit(): void {
         //
+    }
+
+    get og() {
+        return this.calc.og(this.recipe);
+    }
+
+    get totalWeight() {
+        return this.calc.totalWeight(this.recipe);
     }
 
 }
