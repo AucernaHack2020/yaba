@@ -7,9 +7,8 @@ body {
 body {
   background-image: url(~/assets/images/Beer5.jpg);
   background-position: center;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  min-height: 100vh;
   font-family: "Roboto", sans-serif;
 }
 .app-header {
